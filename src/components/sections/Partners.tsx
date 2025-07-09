@@ -5,18 +5,18 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 const providers = [
-    { name: "UAP Old Mutual", src: "/photos/uap-logo.jpeg", width: 120, height: 60, hint: "insurance logo" },
-    { name: "Jubilee Insurance", src: "/photos/jubilee-logo.jpeg", width: 120, height: 60, hint: "insurance logo" },
-    { name: "Case Hospital", src: "/photos/case-logo.jpeg", width: 120, height: 60, hint: "hospital logo" },
-    { name: "Nakasero Hospital", src: "/photos/nakasero-logo.jpeg", width: 120, height: 60, hint: "hospital logo" },
-    { name: "AAR Healthcare", src: "/photos/aar-logo.jpeg", width: 120, height: 60, hint: "clinic logo" },
-    { name: "IMG", src: "/photos/img-logo.jpeg", width: 120, height: 60, hint: "medical group" },
-    { name: "Prudential", src: "/photos/prudential-logo.jpeg", width: 120, height: 60, hint: "insurance logo" },
-    { name: "ICEA Lion", src: "/photos/icea-logo.jpeg", width: 120, height: 60, hint: "insurance logo" },
-    { name: "TMR International Hospital", src: "/photos/tmr-logo.jpeg", width: 120, height: 60, hint: "hospital logo" },
-    { name: "Kampala Hospital", src: "/photos/kampala-hospital-logo.jpeg", width: 120, height: 60, hint: "hospital logo" },
-    { name: "Resolution Insurance", src: "/photos/resolution-logo.jpeg", width: 120, height: 60, hint: "insurance logo" },
-    { name: "Sanlam", src: "/photos/sanlam-logo.jpeg", width: 120, height: 60, hint: "insurance logo" },
+    { name: "UAP Old Mutual", src: "/photos/mulago.jpeg", width: 120, height: 60, hint: "insurance logo" },
+    { name: "Jubilee Insurance", src: "/photos/kisubiH.jpg", width: 120, height: 60, hint: "insurance logo" },
+    { name: "Case Hospital", src: "/photos/marie.jpeg", width: 120, height: 60, hint: "hospital logo" },
+    { name: "Nakasero Hospital", src: "/photos/mengo.jpeg", width: 120, height: 60, hint: "hospital logo" },
+    { name: "AAR Healthcare", src: "/photos/norvik.jpeg", width: 120, height: 60, hint: "clinic logo" },
+    { name: "IMG", src: "/photos/mildmay.jpg", width: 120, height: 60, hint: "medical group" },
+    { name: "Prudential", src: "/photos/ruby.jpeg", width: 120, height: 60, hint: "insurance logo" },
+    { name: "ICEA Lion", src: "/photos/savannah.png", width: 120, height: 60, hint: "insurance logo" },
+    { name: "TMR International Hospital", src: "/photos/medipal.jpeg", width: 120, height: 60, hint: "hospital logo" },
+    { name: "Kampala Hospital", src: "/photos/umc.jpeg", width: 120, height: 60, hint: "hospital logo" },
+    { name: "Resolution Insurance", src: "/photos/lifelink.jpg", width: 120, height: 60, hint: "insurance logo" },
+    { name: "Sanlam", src: "/photos/paragon.jpeg", width: 120, height: 60, hint: "insurance logo" },
 ];
 
 export default function Partners() {

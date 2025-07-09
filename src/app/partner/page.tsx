@@ -41,7 +41,7 @@ export default function PartnerPage() {
                             </DropdownMenuItem>
                             <DropdownMenuSeparator />
                             <DropdownMenuItem asChild>
-                                <Link href="mailto:info@rugbycare.ug">
+                                <Link href="mailto:kayondoronniejrfoundation@gmail.com">
                                     <Send className="mr-2 h-4 w-4" />
                                     <span>Contact Our Team</span>
                                 </Link>
