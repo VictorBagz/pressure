@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { CreditCard, Ticket, Award, CheckCircle2, Heart } from 'lucide-react';
 
@@ -50,7 +49,7 @@ export default function DonateSection() {
                     </div>
                     
                     <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-12 py-7 rounded-full transform transition hover:scale-105 shadow-lg">
-                        <Link href="/donate">Donate Now</Link>
+                        <a href="https://www.givingway.com/donate/rugby-tackle-africa-foundation" target="_blank" rel="noopener noreferrer">Donate Now</a>
                     </Button>
                 </div>
             </div>
