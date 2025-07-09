@@ -42,7 +42,7 @@ export default function PartnerPage() {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="w-56">
                             <DropdownMenuItem asChild>
-                                <Link href="/photos/RugbyCare-Partnership-Proposal.pdf" target="_blank" download>
+                                <Link href="/photos/Athletes Medical Fund.pdf" target="_blank" download>
                                     <Download className="mr-2 h-4 w-4" />
                                     <span>Download Proposal</span>
                                 </Link>
