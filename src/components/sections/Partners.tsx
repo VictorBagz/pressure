@@ -31,7 +31,7 @@ export default function Partners() {
                                     alt={provider.name} 
                                     width={provider.width} 
                                     height={provider.height} 
-                                    className="h-9 w-auto object-contain opacity-70 grayscale"
+                                    className="h-12 w-auto object-contain opacity-70"
                                     data-ai-hint={provider.hint}
                                 />
                             </div>

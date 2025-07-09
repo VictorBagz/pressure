@@ -20,7 +20,7 @@ export default function Story() {
                             alt="Rugby players planning" 
                             width={800}
                             height={600}
-                            className="rounded-xl shadow-lg w-full"
+                            className="rounded-xl shadow-lg w-[70%] mx-auto grayscale"
                             data-ai-hint="rugby players"
                         />
                     </div>
