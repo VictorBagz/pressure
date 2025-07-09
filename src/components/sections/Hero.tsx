@@ -5,8 +5,8 @@ import { UserPlus, HeartHandshake, ChevronDown } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative h-screen flex items-center justify-start text-white">
-      <div className="absolute inset-0 z-0">
+    <section id="home" className="relative h-screen flex items-center justify-start text-white overflow-hidden isolate">
+      <div className="fixed inset-0 z-[-1]">
         <Image
           src="/photos/arnold.jpeg"
           alt="Rugby players in action"
@@ -16,9 +16,9 @@ export default function Hero() {
           data-ai-hint="rugby africa"
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/20 z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/20 z-0"></div>
       
-      <div className="relative z-20 container mx-auto px-6">
+      <div className="relative z-10 container mx-auto px-6">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             A safety Net for Uganda's <span className="text-accent">Rugby Atheletes</span>
@@ -43,7 +43,7 @@ export default function Hero() {
         </div>
       </div>
       
-      <div className="absolute bottom-10 left-0 right-0 flex justify-center z-20">
+      <div className="absolute bottom-10 left-0 right-0 flex justify-center z-10">
         <a href="#impact" className="animate-bounce bg-white/20 rounded-full p-2">
           <ChevronDown className="text-white h-6 w-6" />
         </a>
