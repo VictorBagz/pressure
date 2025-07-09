@@ -5,19 +5,25 @@ import { UserPlus, HeartHandshake, ChevronDown } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative h-screen flex items-center justify-start text-white overflow-hidden isolate">
-      <div className="absolute inset-0 z-[-1]">
+    // The section is a container for the content and sets up the height.
+    // It's crucial that other sections have a solid background to cover the fixed image.
+    <section id="home" className="relative h-screen flex items-center justify-start text-white">
+      {/* The background image is fixed to the viewport. It will not scroll.
+          z-[-1] places it behind all other content on the page. */}
+      <div className="fixed top-0 left-0 w-full h-full z-[-1]">
         <Image
           src="/photos/arnold.jpeg"
           alt="Rugby players in action"
           fill
-          style={{objectFit: 'cover'}}
+          style={{ objectFit: 'cover' }}
           priority
           data-ai-hint="rugby africa"
         />
+        {/* The overlay is part of the fixed background */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/20" />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/20 z-0"></div>
-      
+
+      {/* The content is relative and will scroll normally over the fixed background. */}
       <div className="relative z-10 container mx-auto px-6">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
