@@ -74,6 +74,19 @@ export default function Header() {
             ))}
           </nav>
           
+          <div className="hidden md:block">
+            <Link href="/" onClick={() => setIsMenuOpen(false)}>
+                <Image
+                  src="/photos/medicalfund.jpeg"
+                  alt="RugbyCare UG Logo"
+                  width={180}
+                  height={40}
+                  priority
+                  data-ai-hint="logo"
+                />
+            </Link>
+          </div>
+
           <Button
             variant="ghost"
             size="icon"
