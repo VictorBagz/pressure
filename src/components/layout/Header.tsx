@@ -45,8 +45,8 @@ export default function Header() {
 
   return (
     <header className={cn(
-      'sticky top-0 z-50 transition-all duration-300 text-white',
-      isScrolled ? 'bg-primary/95 shadow-lg backdrop-blur-sm' : 'bg-primary'
+      'sticky top-0 z-50 transition-shadow duration-300 bg-card text-primary',
+      isScrolled && 'shadow-lg'
     )}>
       <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
@@ -73,7 +73,7 @@ export default function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden hover:bg-primary/80"
+            className="md:hidden hover:bg-secondary"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -89,7 +89,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href} 
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className="block py-2 text-center rounded-md hover:bg-primary/80 hover:text-accent transition font-body"
+                  className="block py-2 text-center rounded-md hover:bg-secondary hover:text-accent transition font-body"
                 >
                   {link.label}
                 </Link>
