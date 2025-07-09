@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Send, MapPin, Phone, Mail, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Send, MapPin, Phone, Mail, Facebook, Twitter, Instagram } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
@@ -26,7 +26,6 @@ export default function Footer() {
                             <a href="#" className="text-primary-foreground/80 hover:text-accent transition"><Facebook /></a>
                             <a href="#" className="text-primary-foreground/80 hover:text-accent transition"><Twitter /></a>
                             <a href="#" className="text-primary-foreground/80 hover:text-accent transition"><Instagram /></a>
-                            <a href="#" className="text-primary-foreground/80 hover:text-accent transition"><Linkedin /></a>
                         </div>
                     </div>
                     

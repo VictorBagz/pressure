@@ -1,10 +1,10 @@
 import Counter from '@/components/Counter';
 
 const impactData = [
-  { target: 5400, title: 'Players Covered', description: '', suffix: '+' },
-  { target: 78, title: 'Medical Cases', description: 'Injuries and medical issues successfully treated' },
-  { target: 15, title: 'Partner Clinics', description: 'Medical facilities across Uganda accepting our coverage' },
-  { target: 100, title: 'Player Satisfaction', description: 'Of surveyed players recommend our program', suffix: '%' },
+  { target: 5400, title: 'Active Rugby Players', description: '', suffix: '+' },
+  { target: 75, title: 'Suffer minor and major Injuries Annually', description: '',suffix: '%' },
+  { target: 99.7, title: 'Uninsured Players', description: '', suffix: '%' },
+  { target: 648, title: 'Annual Medical Budget', description: '', suffix: 'M' },
 ];
 
 export default function Impact() {
