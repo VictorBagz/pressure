@@ -27,7 +27,7 @@ export default function Story() {
                     
                     <div className="space-y-8">
                         {storyPoints.map((point, index) => (
-                             <div key={index}>
+                             <div key={index} id={point.title === 'The Impact' ? 'story-impact' : undefined}>
                                 <h3 className="text-xl font-bold text-primary mb-4 flex items-center">
                                     <span className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center mr-3 font-body">{index + 1}</span>
                                     {point.title}

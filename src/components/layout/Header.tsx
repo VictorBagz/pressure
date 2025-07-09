@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 const navLinks = [
   { href: '#home', label: 'Home' },
-  { href: '#impact', label: 'Impact' },
+  { href: '#story-impact', label: 'Impact' },
   { href: '#story', label: 'Our Story' },
   { href: '#players', label: 'Players' },
   { href: '/donate', label: 'Donate' },
