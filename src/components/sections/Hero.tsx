@@ -6,17 +6,17 @@ import { UserPlus, HeartHandshake, ChevronDown } from 'lucide-react';
 export default function Hero() {
   return (
     <section id="home" className="relative h-screen flex items-center justify-start text-white">
-      <div className="fixed inset-0 z-0">
+      <div className="absolute inset-0 z-0">
         <Image
           src="/photos/arnold.jpeg"
           alt="Rugby players in action"
           fill
-          objectFit="cover"
+          style={{objectFit: 'cover'}}
           priority
           data-ai-hint="rugby africa"
         />
       </div>
-      <div className="fixed inset-0 bg-gradient-to-r from-black/70 to-black/20 z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/20 z-10"></div>
       
       <div className="relative z-20 container mx-auto px-6">
         <div className="max-w-2xl">
