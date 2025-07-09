@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -41,7 +42,7 @@ export default function PartnerPage() {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="w-56">
                             <DropdownMenuItem asChild>
-                                <Link href="/RugbyCare-Partnership-Proposal.pdf" target="_blank" download>
+                                <Link href="/photos/RugbyCare-Partnership-Proposal.pdf" target="_blank" download>
                                     <Download className="mr-2 h-4 w-4" />
                                     <span>Download Proposal</span>
                                 </Link>
