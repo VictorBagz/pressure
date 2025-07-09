@@ -79,8 +79,8 @@ export default function Counter({ target, duration = 1500, className, suffix = '
     <div ref={ref} className={cn('flex items-baseline justify-center', className)} aria-label={`${target.toLocaleString('en-US')}${suffix || ''}`}>
       <div className="flex" aria-hidden="true">
         {displayChars.map((char, index) => {
-          if (char === ',') {
-            // Render commas directly
+          if (char === ',' || char === '.') {
+            // Render commas and decimal points directly
             return <span key={index}>{char}</span>;
           }
           if (char === ' ') {
