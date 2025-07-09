@@ -37,7 +37,7 @@ export default function Players() {
                 
                 <div className="order-1 lg:order-2">
                     <Image 
-                        src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1605&q=80" 
+                        src="/photos/jjuko.jpeg" 
                         alt="Rugby player celebrating" 
                         width={600}
                         height={750}
