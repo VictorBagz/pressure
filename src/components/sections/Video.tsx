@@ -19,7 +19,7 @@ export default function Video() {
           */}
           <div className="aspect-video">
              <iframe
-              src="https://youtu.be/ouXulz0Isek?si=CHBPPfgghqy4pYyz"
+              src="https://www.youtube.com/embed/ouXulz0Isek"
               title="RugbyCare UG Impact Story"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

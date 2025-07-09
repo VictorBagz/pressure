@@ -61,7 +61,7 @@ export default function DonateSection() {
                     </div>
 
                     <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-12 py-7 rounded-full transform transition hover:scale-105 shadow-lg">
-                        <a href="https://www.givingway.com/donate/rugby-tackle-africa-foundation" target="_blank" rel="noopener noreferrer">Donate Now</a>
+                        <a href="https://tip.vanvaa.com/?q=MTcxMg==" target="_blank" rel="noopener noreferrer">Donate Now</a>
                     </Button>
                 </div>
             </div>

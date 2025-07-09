@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 const providers = [
-    { name: "UAP Old Mutual", src: "/photos/mulago.jpeg", width: 120, height: 60, hint: "insurance logo" },
+    { name: "UAP Old Mutual", src: "/photos/ugandaCTA.png", width: 120, height: 60, hint: "insurance logo" },
     { name: "Jubilee Insurance", src: "/photos/kisubiH.jpg", width: 120, height: 60, hint: "insurance logo" },
     { name: "Case Hospital", src: "/photos/marie.jpeg", width: 120, height: 60, hint: "hospital logo" },
     { name: "Nakasero Hospital", src: "/photos/mengo.jpeg", width: 120, height: 60, hint: "hospital logo" },
