@@ -4,10 +4,10 @@ export default function Video() {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            Watch Our Impact in Action
+            Ronnie Kayondo jr Jersey 10
           </h2>
           <p className="text-lg text-primary-foreground/80 font-body">
-            See firsthand how your support is changing lives on and off the rugby field.
+            Permanent retirement at Kitante Primary School
           </p>
         </div>
 

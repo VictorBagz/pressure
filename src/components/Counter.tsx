@@ -63,17 +63,36 @@ export default function Counter({ target, duration = 1500, className, suffix = '
     };
   }, [target]);
 
-  // Pad the current count with leading zeros to match the target's length
-  const numDigits = String(target).length;
-  const digits = String(count).padStart(numDigits, '0').split('').map(Number);
+  // Format the number with commas and split into characters
+  const targetString = target.toLocaleString('en-US');
+  let countString = count.toLocaleString('en-US');
+
+  // To keep the layout stable during animation, we pad the count string
+  // with invisible placeholders to match the target string's length.
+  if (countString.length < targetString.length) {
+      countString = countString.padStart(targetString.length, ' ');
+  }
+  
+  const displayChars = countString.split('');
 
   return (
-    <div ref={ref} className={cn('flex items-baseline justify-center', className)} aria-label={`${target}${suffix || ''}`}>
-      {/* The animated digits */}
+    <div ref={ref} className={cn('flex items-baseline justify-center', className)} aria-label={`${target.toLocaleString('en-US')}${suffix || ''}`}>
       <div className="flex" aria-hidden="true">
-        {digits.map((digit, index) => (
-          <Digit key={index} digit={digit} duration={duration} />
-        ))}
+        {displayChars.map((char, index) => {
+          if (char === ',') {
+            // Render commas directly
+            return <span key={index}>{char}</span>;
+          }
+          if (char === ' ') {
+            // Render placeholders as invisible to not affect layout
+            return <span key={index} className="opacity-0">0</span>;
+          }
+          if (!isNaN(parseInt(char, 10))) {
+            // Render digits with the animation component
+            return <Digit key={index} digit={Number(char)} duration={duration} />;
+          }
+          return null;
+        })}
       </div>
       {/* The optional suffix */}
       {suffix && <span>{suffix}</span>}

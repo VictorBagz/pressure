@@ -1,7 +1,7 @@
 import Counter from '@/components/Counter';
 
 const impactData = [
-  { target: 425, title: 'Players Covered', description: 'Registered rugby players enjoying our insurance benefits' },
+  { target: 5400, title: 'Players Covered', description: 'Registered rugby players enjoying our insurance benefits', suffix: '+' },
   { target: 78, title: 'Medical Cases', description: 'Injuries and medical issues successfully treated' },
   { target: 15, title: 'Partner Clinics', description: 'Medical facilities across Uganda accepting our coverage' },
   { target: 100, title: 'Player Satisfaction', description: 'Of surveyed players recommend our program', suffix: '%' },
