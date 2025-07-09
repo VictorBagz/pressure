@@ -21,16 +21,16 @@ export default function Hero() {
       <div className="relative z-20 container mx-auto px-6">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Protecting Uganda's <span className="text-accent">Rugby Heroes</span>
+            A safety Net for Uganda's <span className="text-accent">Rugby Atheletes</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-200 mb-8 font-body">
-            Providing comprehensive medical insurance coverage for rugby players across Uganda. We ensure no athlete is left behind due to injuries.
+          Every tackle, every scrum, every match puts our players at risk. Your support provides critical insurance, ensuring they are protected on and off the field.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground transform transition hover:scale-105">
               <a href="#players">
                 <UserPlus className="mr-2 h-5 w-5" />
-                Register Player
+                 Become a partner
               </a>
             </Button>
             <Button asChild size="lg" className="bg-accent hover:bg-accent/80 text-accent-foreground transform transition hover:scale-105">
