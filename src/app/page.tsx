@@ -7,6 +7,7 @@ import Players from '@/components/sections/Players';
 import DonateSection from '@/components/sections/DonateSection';
 import Partners from '@/components/sections/Partners';
 import Video from '@/components/sections/Video';
+import AnimateOnScroll from '@/components/AnimateOnScroll';
 
 export default function Home() {
   return (
@@ -14,12 +15,24 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Impact />
-        <Story />
-        <Video />
-        <Players />
-        <DonateSection />
-        <Partners />
+        <AnimateOnScroll>
+          <Impact />
+        </AnimateOnScroll>
+        <AnimateOnScroll>
+          <Story />
+        </AnimateOnScroll>
+        <AnimateOnScroll>
+          <Video />
+        </AnimateOnScroll>
+        <AnimateOnScroll>
+          <Players />
+        </AnimateOnScroll>
+        <AnimateOnScroll>
+          <DonateSection />
+        </AnimateOnScroll>
+        <AnimateOnScroll>
+          <Partners />
+        </AnimateOnScroll>
       </main>
       <Footer />
     </>
