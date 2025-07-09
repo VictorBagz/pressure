@@ -1,14 +1,12 @@
 import Link from 'next/link';
-import { Send, MapPin, Phone, Mail, Facebook, Twitter, Instagram } from 'lucide-react';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import { MapPin, Phone, Mail, Facebook, Twitter, Instagram } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Footer() {
     return (
         <footer className="bg-primary text-primary-foreground pt-16 pb-8">
             <div className="container mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-8">
                     {/* About */}
                     <div>
                         <Link href="/">
@@ -50,18 +48,6 @@ export default function Footer() {
                             <p className="flex items-center"><Phone className="mr-3 text-accent h-5 w-5 shrink-0" /> +256 767 001 907</p>
                             <p className="flex items-center"><Mail className="mr-3 text-accent h-5 w-5 shrink-0" /> kayondoronniejrfoundation@gmail.com</p>
                         </div>
-                    </div>
-                    
-                    {/* Newsletter */}
-                    <div>
-                        <h3 className="text-lg font-semibold mb-4">Newsletter</h3>
-                        <p className="text-primary-foreground/80 mb-4 font-body">Subscribe to receive updates on our programs and impact.</p>
-                        <form className="flex">
-                            <Input type="email" placeholder="Your email" className="bg-primary-foreground text-primary rounded-r-none focus:ring-accent focus:ring-offset-0 focus:ring-2" />
-                            <Button type="submit" className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-l-none">
-                                <Send className="h-5 w-5" />
-                            </Button>
-                        </form>
                     </div>
                 </div>
                 
