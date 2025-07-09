@@ -1,12 +1,12 @@
 import Image from 'next/image';
 
 const providers = [
-    { name: "Hospital A", width: 120, height: 60, hint: "hospital logo" },
-    { name: "Clinic B", width: 120, height: 60, hint: "clinic logo" },
-    { name: "Pharmacy X", width: 120, height: 60, hint: "pharmacy logo" },
-    { name: "Lab Care", width: 120, height: 60, hint: "laboratory logo" },
-    { name: "Physio UG", width: 120, height: 60, hint: "physiotherapy logo" },
-    { name: "Medi Group", width: 120, height: 60, hint: "medical group" },
+    { name: "UAP Old Mutual", src: "/photos/uap-logo.jpeg", width: 120, height: 60, hint: "insurance logo" },
+    { name: "Jubilee Insurance", src: "/photos/jubilee-logo.jpeg", width: 120, height: 60, hint: "insurance logo" },
+    { name: "Case Hospital", src: "/photos/case-logo.jpeg", width: 120, height: 60, hint: "hospital logo" },
+    { name: "Nakasero Hospital", src: "/photos/nakasero-logo.jpeg", width: 120, height: 60, hint: "hospital logo" },
+    { name: "AAR Healthcare", src: "/photos/aar-logo.jpeg", width: 120, height: 60, hint: "clinic logo" },
+    { name: "IMG", src: "/photos/img-logo.jpeg", width: 120, height: 60, hint: "medical group" },
 ];
 
 export default function Partners() {
@@ -27,11 +27,11 @@ export default function Partners() {
                         {providers.map((provider) => (
                              <div key={provider.name} className="bg-card p-4 rounded-lg shadow-sm flex items-center justify-center h-24 transition hover:shadow-md">
                                 <Image 
-                                    src={`https://placehold.co/${provider.width}x${provider.height}.png`} 
+                                    src={provider.src} 
                                     alt={provider.name} 
                                     width={provider.width} 
                                     height={provider.height} 
-                                    className="h-12 w-auto opacity-70"
+                                    className="h-12 w-auto object-contain opacity-70"
                                     data-ai-hint={provider.hint}
                                 />
                             </div>
