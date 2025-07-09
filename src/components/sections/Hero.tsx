@@ -6,7 +6,7 @@ import { UserPlus, HeartHandshake, ChevronDown } from 'lucide-react';
 export default function Hero() {
   return (
     <section id="home" className="relative h-screen flex items-center justify-start text-white overflow-hidden isolate">
-      <div className="fixed inset-0 z-[-1]">
+      <div className="absolute inset-0 z-[-1]">
         <Image
           src="/photos/arnold.jpeg"
           alt="Rugby players in action"
