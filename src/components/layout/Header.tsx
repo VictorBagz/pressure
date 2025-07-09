@@ -48,7 +48,7 @@ export default function Header() {
       'sticky top-0 z-50 transition-shadow duration-300 bg-white text-primary',
       isScrolled && 'shadow-lg'
     )}>
-      <div className="container mx-auto pl-[5px] pr-6 py-3">
+      <div className="container mx-auto pl-[5px] pr-1 py-3">
         <div className="flex items-center justify-between">
           <Link href="/" onClick={() => setIsMenuOpen(false)}>
             <Image
