@@ -1,7 +1,8 @@
 import Link from 'next/link';
-import { Goal, Send, MapPin, Phone, Mail, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Send, MapPin, Phone, Mail, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 export default function Footer() {
     return (
@@ -10,12 +11,16 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-8">
                     {/* About */}
                     <div>
-                        <h3 className="text-xl font-bold mb-4 flex items-center">
-                            <div className="h-10 w-10 bg-accent rounded-full flex items-center justify-center mr-2">
-                                <Goal className="text-primary" />
-                            </div>
-                            RugbyCare UG
-                        </h3>
+                        <Link href="/">
+                          <Image
+                            src="/photos/medicalfund.jpeg"
+                            alt="RugbyCare UG Logo"
+                            width={180}
+                            height={40}
+                            className="mb-4"
+                            data-ai-hint="logo"
+                          />
+                        </Link>
                         <p className="text-primary-foreground/80 mb-4 font-body">Providing comprehensive medical insurance coverage for rugby players across Uganda since 2019.</p>
                         <div className="flex space-x-4">
                             <a href="#" className="text-primary-foreground/80 hover:text-accent transition"><Facebook /></a>

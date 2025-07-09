@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Goal, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 const navLinks = [
   { href: '#home', label: 'Home' },
@@ -49,11 +50,15 @@ export default function Header() {
     )}>
       <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-3" onClick={() => setIsMenuOpen(false)}>
-            <div className="h-10 w-10 bg-accent rounded-full flex items-center justify-center">
-              <Goal className="text-primary" />
-            </div>
-            <h1 className="text-xl font-bold font-headline">RugbyCare<span className="text-accent">UG</span></h1>
+          <Link href="/" onClick={() => setIsMenuOpen(false)}>
+            <Image
+              src="/photos/medicalfund.jpeg"
+              alt="RugbyCare UG Logo"
+              width={180}
+              height={40}
+              priority
+              data-ai-hint="logo"
+            />
           </Link>
           
           <nav className="hidden md:flex items-center space-x-8">
