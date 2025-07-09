@@ -7,6 +7,7 @@ import Players from '@/components/sections/Players';
 import DonateSection from '@/components/sections/DonateSection';
 import Partners from '@/components/sections/Partners';
 import Video from '@/components/sections/Video';
+import BecomePartner from '@/components/sections/BecomePartner';
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <Players />
         <DonateSection />
         <Partners />
+        <BecomePartner />
       </main>
       <Footer />
     </>
