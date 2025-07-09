@@ -1,5 +1,6 @@
 import { Flag, ShieldCheck, Award, BarChart3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const partnershipBenefits = [
   {
@@ -49,7 +50,7 @@ export default function BecomePartner() {
           </div>
 
           <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-12 py-7 text-lg transform transition hover:scale-105 shadow-lg">
-            <a href="#">Partner With Us</a>
+            <Link href="/partner">Partner With Us</Link>
           </Button>
         </div>
       </div>
