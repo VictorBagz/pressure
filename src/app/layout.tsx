@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
+import WhatsappButton from '@/components/WhatsappButton';
 
 export const metadata: Metadata = {
   title: 'RugbyCare UG - Medical Insurance for Ugandan Rugby Players',
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className="font-body antialiased">
         {children}
         <Toaster />
+        <WhatsappButton />
       </body>
     </html>
   );

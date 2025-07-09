@@ -77,8 +77,8 @@ export default function Header() {
           <div className="hidden md:block">
             <Link href="/" onClick={() => setIsMenuOpen(false)}>
                 <Image
-                  src="/photos/medicalfund.jpeg"
-                  alt="RugbyCare UG Logo"
+                  src="/photos/kayondologo.jpeg"
+                  alt="KayondoRonniejr UG Logo"
                   width={180}
                   height={40}
                   priority
