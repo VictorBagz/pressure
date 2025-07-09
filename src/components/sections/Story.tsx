@@ -18,7 +18,7 @@ export default function Story() {
                     <div>
                         <Image 
                             src="/photos/legendK.jpeg" 
-                            alt="Rugby players planning" 
+                            alt="Ronnie Kayondo Jr., the inspiration for the Athletes Medical Fund Uganda" 
                             width={800}
                             height={600}
                             className="rounded-xl shadow-lg w-[70%] mx-auto grayscale"

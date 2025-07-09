@@ -4,8 +4,9 @@ import { Toaster } from "@/components/ui/toaster";
 import WhatsappButton from '@/components/WhatsappButton';
 
 export const metadata: Metadata = {
-  title: 'RugbyCare UG - Medical Insurance for Ugandan Rugby Players',
-  description: 'Providing comprehensive medical insurance coverage for rugby players across Uganda. We ensure no athlete is left behind due to injuries.',
+  title: 'RugbyCare UG | Medical Insurance for Ugandan Rugby Players',
+  description: 'Support the Kayondo Ronnie Jr Foundation in providing essential medical insurance and sports injury coverage for over 5,400 rugby players across Uganda. Your donation to the Athletes Medical Fund ensures their safety and future in the sport.',
+  keywords: 'Rugby Uganda, Ugandan rugby players, rugby medical insurance, sports injury insurance Uganda, player safety Uganda, Kayondo Ronnie Jr Foundation, Athletes Medical Fund Uganda, RugbyCare UG, donate rugby Uganda, support Ugandan athletes',
 };
 
 export default function RootLayout({

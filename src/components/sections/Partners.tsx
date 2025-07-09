@@ -29,7 +29,7 @@ export default function Partners() {
                 <div className="container mx-auto px-6">
                     <h2 className="text-2xl font-bold text-center text-muted-foreground mb-12">Powered By</h2>
                     <div className="max-w-xs mx-auto">
-                        <Image src={`/photos/minet.jpeg`} alt="Medical Partners UG" width={300} height={100} className="w-full opacity-70" data-ai-hint="medical partner" />
+                        <Image src={`/photos/minet.jpeg`} alt="Minet, the official insurance brokerage partner for RugbyCare UG" width={300} height={100} className="w-full opacity-70" data-ai-hint="medical partner" />
                     </div>
                 </div>
             </section>

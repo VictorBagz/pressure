@@ -13,7 +13,7 @@ export default function Hero() {
       <div className="fixed top-0 left-0 w-full h-full z-[-1]">
         <Image
           src="/photos/arnold.jpeg"
-          alt="Rugby players in action"
+          alt="Ugandan rugby players competing in a match, covered by RugbyCare's insurance"
           fill
           style={{ objectFit: 'cover' }}
           priority
@@ -27,7 +27,7 @@ export default function Hero() {
       <div className="relative z-10 container mx-auto px-6">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            A safety Net for Uganda's <span className="text-accent">Rugby Atheletes</span>
+            A safety Net for Uganda's <span className="text-accent">Rugby Athletes</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-200 mb-8 font-body">
           Every tackle, every scrum, every match puts our players at risk. Your support provides critical insurance, ensuring they are protected on and off the field.

@@ -39,7 +39,7 @@ export default function Players() {
                 <div className="w-full h-full min-h-[400px] lg:min-h-[500px]">
                     <Image 
                         src="/photos/jjuko.jpeg" 
-                        alt="Rugby player celebrating" 
+                        alt="A grateful Ugandan rugby player protected by the foundation's medical insurance" 
                         width={600}
                         height={750}
                         className="rounded-xl shadow-lg w-full h-full object-cover"

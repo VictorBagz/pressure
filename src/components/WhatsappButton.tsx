@@ -6,7 +6,7 @@ import Image from 'next/image';
 const WhatsappIcon = () => (
     <Image 
         src="/photos/whatsapp.jpeg" 
-        alt="Whatsapp Icon"
+        alt="Chat on WhatsApp with RugbyCare UG"
         width={56}
         height={56}
         className="rounded-full"
@@ -21,7 +21,7 @@ export default function WhatsappButton() {
             target="_blank"
             rel="noopener noreferrer"
             className="fixed bottom-6 right-6 z-50 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
-            aria-label="Chat with us on WhatsApp"
+            aria-label="Chat with RugbyCare UG on WhatsApp"
         >
             <WhatsappIcon />
         </Link>

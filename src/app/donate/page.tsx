@@ -1,8 +1,14 @@
+import type { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import NewsletterForm from '@/components/NewsletterForm';
+
+export const metadata: Metadata = {
+  title: 'Donate to Support Ugandan Rugby Players | RugbyCare UG',
+  description: 'Your donation provides vital medical insurance for rugby players in Uganda. Help the Kayondo Ronnie Jr Foundation protect athletes from sports injuries through the Athletes Medical Fund.',
+};
 
 const donationTiers = [
     { title: "Basic Coverage", price: "UGX 150,000", description: "Covers one player for essential medical needs", popular: false },

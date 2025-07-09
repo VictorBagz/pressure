@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -10,6 +11,11 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+
+export const metadata: Metadata = {
+    title: "Partner with RugbyCare UG | Support Ugandan Rugby",
+    description: "Join the Kayondo Ronnie Jr Foundation as a partner to support the health and safety of Ugandan rugby players. Download our proposal or contact us to learn more.",
+};
 
 export default function PartnerPage() {
     return (
