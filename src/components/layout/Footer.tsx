@@ -45,9 +45,11 @@ export default function Footer() {
                     <div>
                         <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
                         <div className="space-y-3 text-primary-foreground/80 font-body">
-                            <p className="flex items-start"><MapPin className="mr-3 text-accent mt-1 h-5 w-5 shrink-0" /> Plot 12, Rugby House, Kampala</p>
-                            <p className="flex items-center"><Phone className="mr-3 text-accent h-5 w-5 shrink-0" /> +256 772 123 456</p>
-                            <p className="flex items-center"><Mail className="mr-3 text-accent h-5 w-5 shrink-0" /> info@rugbycare.ug</p>
+                            <p className="flex items-start"><MapPin className="mr-3 text-accent mt-1 h-5 w-5 shrink-0" /> Kampala, Uganda</p>
+                            <p className="flex items-start"><MapPin className="mr-3 text-accent mt-1 h-5 w-5 shrink-0" /> Room1-Lugogo Tennis Court</p>
+                            <p className="flex items-center"><Phone className="mr-3 text-accent h-5 w-5 shrink-0" /> +256 773 207 919</p>
+                            <p className="flex items-center"><Phone className="mr-3 text-accent h-5 w-5 shrink-0" /> +256 767 001 907</p>
+                            <p className="flex items-center"><Mail className="mr-3 text-accent h-5 w-5 shrink-0" /> kayondoronniejrfoundation@gmail.com</p>
                         </div>
                     </div>
                     
@@ -66,9 +68,8 @@ export default function Footer() {
                 
                 <div className="border-t border-primary/50 pt-6 mt-6">
                     <div className="flex flex-col md:flex-row justify-between items-center font-body">
-                        <p className="text-primary-foreground/70 text-sm mb-4 md:mb-0">&copy; {new Date().getFullYear()} RugbyCare Foundation Uganda. All rights reserved.</p>
+                        <p className="text-primary-foreground/70 text-sm mb-4 md:mb-0">&copy; {new Date().getFullYear()} Athletes Medical Fund Uganda. All rights reserved.</p>
                         <div className="flex space-x-6">
-                            <Link href="#" className="text-primary-foreground/70 hover:text-accent text-sm transition">Privacy Policy</Link>
                             <Link href="#" className="text-primary-foreground/70 hover:text-accent text-sm transition">Terms of Service</Link>
                             <Link href="#" className="text-primary-foreground/70 hover:text-accent text-sm transition">FAQ</Link>
                         </div>
