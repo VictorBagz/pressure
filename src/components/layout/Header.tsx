@@ -10,7 +10,6 @@ const navLinks = [
   { href: '#home', label: 'Home' },
   { href: '#impact', label: 'Impact' },
   { href: '#story', label: 'Our Story' },
-  { href: '#solutions', label: 'Solutions' },
   { href: '#players', label: 'Players' },
   { href: '/donate', label: 'Donate' },
 ];
@@ -45,7 +44,7 @@ export default function Header() {
 
   return (
     <header className={cn(
-      'sticky top-0 z-50 transition-shadow duration-300 bg-card text-primary',
+      'sticky top-0 z-50 transition-shadow duration-300 bg-white text-primary',
       isScrolled && 'shadow-lg'
     )}>
       <div className="container mx-auto px-6 py-3">

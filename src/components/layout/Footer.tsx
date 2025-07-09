@@ -31,7 +31,6 @@ export default function Footer() {
                         <ul className="space-y-2 font-body">
                             <li><a href="#home" className="text-primary-foreground/80 hover:text-accent transition">Home</a></li>
                             <li><a href="#story" className="text-primary-foreground/80 hover:text-accent transition">Our Story</a></li>
-                            <li><a href="#solutions" className="text-primary-foreground/80 hover:text-accent transition">Solutions</a></li>
                             <li><a href="#players" className="text-primary-foreground/80 hover:text-accent transition">Players</a></li>
                             <li><Link href="/donate" className="text-primary-foreground/80 hover:text-accent transition">Donate</Link></li>
                         </ul>
