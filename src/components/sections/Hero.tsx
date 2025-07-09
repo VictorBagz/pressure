@@ -40,7 +40,7 @@ export default function Hero() {
               </a>
             </Button>
             <Button asChild size="lg" className="bg-accent hover:bg-accent/80 text-accent-foreground transform transition-all hover:scale-105 hover:shadow-[0_0_15px_hsl(var(--accent))]">
-              <Link href="/donate">
+              <Link href="https://tip.vanvaa.com/?q=MTcxMg==">
                 <HeartHandshake className="mr-2 h-5 w-5" />
                 Donate Now
               </Link>
