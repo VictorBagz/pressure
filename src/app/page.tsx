@@ -6,6 +6,7 @@ import Story from '@/components/sections/Story';
 import Players from '@/components/sections/Players';
 import DonateSection from '@/components/sections/DonateSection';
 import Partners from '@/components/sections/Partners';
+import Video from '@/components/sections/Video';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <Hero />
         <Impact />
         <Story />
+        <Video />
         <Players />
         <DonateSection />
         <Partners />
