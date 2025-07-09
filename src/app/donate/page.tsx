@@ -8,6 +8,7 @@ import NewsletterForm from '@/components/NewsletterForm';
 export const metadata: Metadata = {
   title: 'Donate to Support Ugandan Rugby Players | RugbyCare UG',
   description: 'Your donation provides vital medical insurance for rugby players in Uganda. Help the Kayondo Ronnie Jr Foundation protect athletes from sports injuries through the Athletes Medical Fund.',
+  keywords: 'Rugby Uganda, Ugandan rugby players, rugby medical insurance, sports injury insurance Uganda, player safety Uganda, Kayondo Ronnie Jr Foundation, Athletes Medical Fund Uganda, RugbyCare UG, donate rugby Uganda, support Ugandan athletes, uganda rugby, insurance, medical cover, rugby insurance, athletes medical fund, medical fund, kayondo ronnie foundation',
 };
 
 const donationTiers = [

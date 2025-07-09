@@ -15,6 +15,7 @@ import {
 export const metadata: Metadata = {
     title: "Partner with RugbyCare UG | Support Ugandan Rugby",
     description: "Join the Kayondo Ronnie Jr Foundation as a partner to support the health and safety of Ugandan rugby players. Download our proposal or contact us to learn more.",
+    keywords: 'Rugby Uganda, Ugandan rugby players, rugby medical insurance, sports injury insurance Uganda, player safety Uganda, Kayondo Ronnie Jr Foundation, Athletes Medical Fund Uganda, RugbyCare UG, donate rugby Uganda, support Ugandan athletes, uganda rugby, insurance, medical cover, rugby insurance, athletes medical fund, medical fund, kayondo ronnie foundation',
 };
 
 export default function PartnerPage() {
