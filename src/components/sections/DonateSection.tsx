@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { CreditCard, Ticket, Award, CheckCircle2, Heart } from 'lucide-react';
+import Image from 'next/image';
 
 const benefits = [
     {
@@ -48,6 +49,17 @@ export default function DonateSection() {
                         </ul>
                     </div>
                     
+                    <div className="mb-10 w-full max-w-md">
+                        <Image 
+                            src="/photos/giftcard.jpeg"
+                            alt="RugbyCare UG Gift Card"
+                            width={500}
+                            height={300}
+                            className="rounded-lg shadow-lg"
+                            data-ai-hint="gift card"
+                        />
+                    </div>
+
                     <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-12 py-7 rounded-full transform transition hover:scale-105 shadow-lg">
                         <a href="https://www.givingway.com/donate/rugby-tackle-africa-foundation" target="_blank" rel="noopener noreferrer">Donate Now</a>
                     </Button>
