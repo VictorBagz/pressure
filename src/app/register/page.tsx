@@ -31,8 +31,7 @@ import Footer from "@/components/layout/Footer";
 import { useToast } from "@/hooks/use-toast";
 import { User, Phone, Shield, Users, HeartHandshake } from 'lucide-react';
 import { registerPlayer, type RegisterPlayerState } from "./actions";
-import { useFormState } from "react-dom";
-import { useEffect } from "react";
+import { useActionState, useEffect } from "react";
 
 
 const rugbyClubs = [
@@ -73,7 +72,7 @@ export default function RegisterPage() {
         },
     });
 
-    const [state, formAction] = useFormState<RegisterPlayerState, FormData>(registerPlayer, {
+    const [state, formAction] = useActionState<RegisterPlayerState, FormData>(registerPlayer, {
         status: 'idle',
     });
 
