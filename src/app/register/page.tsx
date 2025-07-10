@@ -5,15 +5,7 @@ import Link from 'next/link';
 import { useActionState, useEffect, useRef } from "react";
 
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -133,9 +125,9 @@ export default function RegisterPage() {
                                 <Label htmlFor="terms">
                                     Accept terms and conditions
                                 </Label>
-                                <FormDescription>
+                                <p className="text-sm text-muted-foreground">
                                     You agree to our <Link href="#" className="text-primary hover:underline">Terms of Service</Link> and <Link href="#" className="text-primary hover:underline">Privacy Policy</Link>.
-                                </FormDescription>
+                                </p>
                                 {state.errors?.terms && <p className="text-sm font-medium text-destructive">{state.errors.terms[0]}</p>}
                             </div>
                         </div>
