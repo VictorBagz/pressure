@@ -25,7 +25,7 @@ const newsData = [
     aiHint: 'charity event handshake',
     category: 'Community',
     title: 'Foundation Partners with Local Schools for Youth Clinic',
-    excerpt: 'We successfully hosted a rugby clinic for over 200 children, promoting the sport and its values of teamwork and discipline.',
+    excerpt: 'We successfully hosted a rugby clinic for over 200 children, promoting the sport and its values.',
     date: 'October 15, 2024',
     link: '#',
   },
@@ -34,17 +34,26 @@ const newsData = [
     aiHint: 'player signing autograph',
     category: 'Player Spotlight',
     title: 'Rising Star: A Conversation with Adrian Kasito',
-    excerpt: 'We sat down with the Kobs scrum-half to discuss his journey, ambitions, and the importance of player welfare.',
+    excerpt: 'We sat down with the Kobs scrum-half to discuss his journey, ambitions, and player welfare.',
     date: 'September 29, 2024',
+    link: '#',
+  },
+   {
+    image: '/photos/jjuko.jpeg',
+    aiHint: 'rugby player action',
+    category: 'Fundraiser',
+    title: 'Annual Fundraising Gala Exceeds Expectations',
+    excerpt: 'Thanks to our generous donors, we raised a record amount to support player insurance for the next season.',
+    date: 'September 10, 2024',
     link: '#',
   },
 ];
 
-const FeaturedNewsCard = ({ item }: { item: typeof newsData[0] }) => (
+const NewsCard = ({ item }: { item: typeof newsData[0] }) => (
     <AnimateOnScroll className="h-full" initialClass="opacity-0 scale-95" finalClass="opacity-100 scale-100">
         <Link href={item.link} className="group block h-full">
-            <Card className="flex flex-col h-full overflow-hidden rounded-xl shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-1">
-                <div className="relative h-64 md:h-80 w-full">
+            <Card className="flex flex-col md:flex-row h-full overflow-hidden rounded-xl shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-1">
+                <div className="relative h-48 md:h-full md:w-2/5 w-full flex-shrink-0">
                     <Image
                         src={item.image}
                         alt={item.title}
@@ -54,30 +63,13 @@ const FeaturedNewsCard = ({ item }: { item: typeof newsData[0] }) => (
                         className="transition-transform duration-300 group-hover:scale-105"
                     />
                 </div>
-                <CardContent className="p-6 flex-grow flex flex-col">
-                    <div className="flex-grow">
+                <CardContent className="p-6 flex-grow flex flex-col justify-between">
+                    <div>
                         <Badge variant="secondary" className="mb-2">{item.category}</Badge>
-                        <h3 className="text-2xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">{item.title}</h3>
-                        <p className="text-muted-foreground font-body mb-4">{item.excerpt}</p>
+                        <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">{item.title}</h3>
+                        <p className="text-muted-foreground font-body mb-4 text-sm">{item.excerpt}</p>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground pt-2">
-                        <Calendar className="h-4 w-4" />
-                        <span>{item.date}</span>
-                    </div>
-                </CardContent>
-            </Card>
-        </Link>
-    </AnimateOnScroll>
-);
-
-const NewsListItem = ({ item }: { item: typeof newsData[0] }) => (
-    <AnimateOnScroll initialClass="opacity-0 translate-x-4" finalClass="opacity-100 translate-x-0">
-        <Link href={item.link} className="group block">
-            <Card className="overflow-hidden rounded-xl shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-1">
-                 <CardContent className="p-5">
-                    <Badge variant="secondary" className="mb-2 text-xs">{item.category}</Badge>
-                    <h4 className="text-lg font-bold text-primary mb-2 group-hover:text-accent transition-colors">{item.title}</h4>
-                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground pt-2">
                         <Calendar className="h-4 w-4" />
                         <span>{item.date}</span>
                     </div>
@@ -91,8 +83,7 @@ const NewsListItem = ({ item }: { item: typeof newsData[0] }) => (
 export default function News() {
   const [showAll, setShowAll] = useState(false);
   
-  const featuredArticle = newsData[0];
-  const listArticles = showAll ? newsData.slice(1) : newsData.slice(1, 3);
+  const displayedArticles = showAll ? newsData : newsData.slice(0, 3);
 
   return (
     <section id="news" className="py-20 bg-secondary">
@@ -106,26 +97,20 @@ export default function News() {
             </p>
         </AnimateOnScroll>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-            {/* Featured Article */}
-            <div className="lg:col-span-1">
-                {featuredArticle && <FeaturedNewsCard item={featuredArticle} />}
-            </div>
-
-            {/* List Articles */}
-            <div className="lg:col-span-1 space-y-6">
-                {listArticles.map((item, index) => (
-                    <NewsListItem key={index} item={item} />
-                ))}
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6">
+            {displayedArticles.map((item, index) => (
+                <NewsCard key={index} item={item} />
+            ))}
         </div>
 
         {!showAll && newsData.length > 3 && (
           <div className="text-center mt-12">
-            <Button onClick={() => setShowAll(true)} size="lg" className="bg-primary hover:bg-primary/90">
-              <ArrowRight className="mr-2 h-5 w-5" />
-              View More News
-            </Button>
+            <AnimateOnScroll>
+                <Button onClick={() => setShowAll(true)} size="lg" className="bg-primary hover:bg-primary/90">
+                View More News
+                <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+            </AnimateOnScroll>
           </div>
         )}
       </div>
