@@ -21,9 +21,9 @@ export default function Home() {
         <Video />
         <Players />
         <DonateSection />
-        <Partners />
         <BecomePartner />
         <News />
+        <Partners />
       </main>
       <Footer />
     </>

@@ -1,62 +1,81 @@
+
 'use client';
 
-import { useState } from 'react';
+import * as React from 'react';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import AnimateOnScroll from '../AnimateOnScroll';
 
-const providers = [
-    { name: "UAP Old Mutual", src: "/photos/ugandaCTA.png", width: 120, height: 60, hint: "insurance logo" },
-    { name: "Jubilee Insurance", src: "/photos/kisubiH.jpg", width: 120, height: 60, hint: "insurance logo" },
-    { name: "Case Hospital", src: "/photos/marie.jpeg", width: 120, height: 60, hint: "hospital logo" },
-    { name: "Nakasero Hospital", src: "/photos/mengo.jpeg", width: 120, height: 60, hint: "hospital logo" },
-    { name: "AAR Healthcare", src: "/photos/norvik.jpeg", width: 120, height: 60, hint: "clinic logo" },
-    { name: "IMG", src: "/photos/mildmay.jpg", width: 120, height: 60, hint: "medical group" },
-    { name: "Prudential", src: "/photos/ruby.jpeg", width: 120, height: 60, hint: "insurance logo" },
-    { name: "ICEA Lion", src: "/photos/savannah.png", width: 120, height: 60, hint: "insurance logo" },
-    { name: "TMR International Hospital", src: "/photos/medipal.jpeg", width: 120, height: 60, hint: "hospital logo" },
-    { name: "Kampala Hospital", src: "/photos/umc.jpeg", width: 120, height: 60, hint: "hospital logo" },
-    { name: "Resolution Insurance", src: "/photos/lifelink.jpg", width: 120, height: 60, hint: "insurance logo" },
-    { name: "Sanlam", src: "/photos/paragon.jpeg", width: 120, height: 60, hint: "insurance logo" },
+const partnersList = [
+  { name: 'UAP Old Mutual', src: '/photos/ugandaCTA.png', hint: 'insurance logo' },
+  { name: 'Jubilee Insurance', src: '/photos/kisubiH.jpg', hint: 'insurance logo' },
+  { name: 'Case Hospital', src: '/photos/marie.jpeg', hint: 'hospital logo' },
+  { name: 'Nakasero Hospital', src: '/photos/mengo.jpeg', hint: 'hospital logo' },
+  { name: 'AAR Healthcare', src: '/photos/norvik.jpeg', hint: 'clinic logo' },
+  { name: 'IMG', src: '/photos/mildmay.jpg', hint: 'medical group' },
+  { name: 'Prudential', src: '/photos/ruby.jpeg', hint: 'insurance logo' },
+  { name: 'Minet', src: '/photos/minet.jpeg', hint: 'insurance broker logo' },
+  { name: 'ICEA Lion', src: '/photos/savannah.png', hint: 'insurance logo' },
+  { name: 'TMR International Hospital', src: '/photos/medipal.jpeg', hint: 'hospital logo' },
+  { name: 'Kampala Hospital', src: '/photos/umc.jpeg', hint: 'hospital logo' },
+  { name: 'Resolution Insurance', src: '/photos/lifelink.jpg', hint: 'insurance logo' },
+  { name: 'Sanlam', src: '/photos/paragon.jpeg', hint: 'insurance logo' },
 ];
 
 export default function Partners() {
-    const [showAll, setShowAll] = useState(false);
-    const displayedProviders = showAll ? providers : providers.slice(0, 6);
-
-    return (
-        <>
-            <section className="py-16 bg-card">
-                <div className="container mx-auto px-6">
-                    <h2 className="text-2xl font-bold text-center text-muted-foreground mb-12">Powered By</h2>
-                    <div className="max-w-xs mx-auto">
-                        <Image src={`/photos/minet.jpeg`} alt="Minet, the official insurance brokerage partner for RugbyCare UG" width={300} height={100} className="w-full opacity-70" data-ai-hint="medical partner" />
+  return (
+    <section id="partners" className="py-20 bg-secondary">
+      <div className="container mx-auto px-6">
+        <AnimateOnScroll className="max-w-3xl mx-auto text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            Our Proud Partners
+          </h2>
+          <p className="text-lg text-muted-foreground font-body">
+            We are grateful for the support of our partners who make our work possible.
+          </p>
+        </AnimateOnScroll>
+        
+        <AnimateOnScroll 
+            initialClass="opacity-0 scale-95"
+            finalClass="opacity-100 scale-100"
+            className="transition-all duration-500"
+        >
+            <Carousel
+              opts={{
+                align: 'start',
+                loop: true,
+              }}
+              className="w-full max-w-6xl mx-auto"
+            >
+              <CarouselContent className="-ml-4">
+                {partnersList.map((partner, index) => (
+                  <CarouselItem key={index} className="pl-4 basis-1/2 md:basis-1/3 lg:basis-1/5">
+                    <div className="p-1">
+                        <div className="bg-card p-6 rounded-lg shadow-sm flex items-center justify-center h-28 transition hover:shadow-md">
+                           <Image
+                            src={partner.src}
+                            alt={`${partner.name} logo`}
+                            width={120}
+                            height={60}
+                            className="h-16 w-auto object-contain opacity-80"
+                            data-ai-hint={partner.hint}
+                          />
+                        </div>
                     </div>
-                </div>
-            </section>
-            <section className="py-16 bg-secondary">
-                <div className="container mx-auto px-6">
-                    <h2 className="text-2xl font-bold text-center text-primary/80 mb-12">Our Service Providers</h2>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-                        {displayedProviders.map((provider) => (
-                             <div key={provider.name} className="bg-card p-4 rounded-lg shadow-sm flex items-center justify-center h-24 transition hover:shadow-md">
-                                <Image 
-                                    src={provider.src} 
-                                    alt={provider.name} 
-                                    width={provider.width} 
-                                    height={provider.height} 
-                                    className="h-12 w-auto object-contain opacity-70"
-                                    data-ai-hint={provider.hint}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                    <div className="text-center mt-12">
-                        <Button onClick={() => setShowAll(!showAll)} variant="outline" className="text-primary hover:bg-primary/10 border-primary">
-                            {showAll ? 'Show Less Providers' : 'View All Service Providers'}
-                        </Button>
-                    </div>
-                </div>
-            </section>
-        </>
-    );
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden sm:flex" />
+              <CarouselNext className="hidden sm:flex" />
+            </Carousel>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
 }
