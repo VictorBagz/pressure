@@ -8,6 +8,7 @@ import DonateSection from '@/components/sections/DonateSection';
 import Partners from '@/components/sections/Partners';
 import Video from '@/components/sections/Video';
 import BecomePartner from '@/components/sections/BecomePartner';
+import News from '@/components/sections/News';
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <DonateSection />
         <Partners />
         <BecomePartner />
+        <News />
       </main>
       <Footer />
     </>
