@@ -32,7 +32,7 @@ export default function Footer() {
                             <li><a href="#home" className="text-primary-foreground/80 hover:text-accent transition">Home</a></li>
                             <li><a href="#story" className="text-primary-foreground/80 hover:text-accent transition">Our Story</a></li>
                             <li><a href="#players" className="text-primary-foreground/80 hover:text-accent transition">Players</a></li>
-                            <li><Link href="/donate" className="text-primary-foreground/80 hover:text-accent transition">Donate</Link></li>
+                            <li><a href="#donate-section" className="text-primary-foreground/80 hover:text-accent transition">Donate</a></li>
                         </ul>
                     </div>
                     
