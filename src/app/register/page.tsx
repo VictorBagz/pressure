@@ -47,6 +47,12 @@ const schools = [
     "Makerere College School",
     "London College of St. Lawrence",
     "Greenhill Academy",
+    "Hana International",
+    "Sir Samuel Baker",
+    "St,Joseph's Layibi",
+    "Mwiri College",
+    "Jinja ss",
+    "Mbarara High"
 ];
 
 export default function RegisterPage() {

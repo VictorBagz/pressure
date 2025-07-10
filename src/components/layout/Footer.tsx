@@ -64,7 +64,6 @@ export default function Footer() {
                         <div className="flex space-x-6">
                             <Link href="#" className="text-primary-foreground/70 hover:text-accent text-sm transition">Terms of Service</Link>
                             <Link href="#" className="text-primary-foreground/70 hover:text-accent text-sm transition">FAQ</Link>
-                            <Link href="/admin" className="text-primary-foreground/70 hover:text-accent text-sm transition">Admin</Link>
                         </div>
                     </div>
                 </div>
