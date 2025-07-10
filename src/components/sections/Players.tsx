@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2 } from 'lucide-react';
+import Link from 'next/link';
 
 const features = [
     "Full Medical & Rehab Coverage",
@@ -30,9 +31,9 @@ export default function Players() {
                     </ul>
 
                     <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8">
-                        <a href="#">
+                        <Link href="/register">
                             Register for Coverage
-                        </a>
+                        </Link>
                     </Button>
                 </div>
                 

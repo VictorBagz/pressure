@@ -17,7 +17,7 @@ const WhatsappIcon = () => (
 export default function WhatsappButton() {
     return (
         <Link
-            href=""
+            href="https://wa.me/qr/AFZSB3MZXNYPD1 "
             target="_blank"
             rel="noopener noreferrer"
             className="fixed bottom-6 right-6 z-50 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
