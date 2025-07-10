@@ -23,27 +23,43 @@ import {
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { Shield, Users } from "lucide-react";
+import { Shield, Users, AlertTriangle } from "lucide-react";
 import type { Metadata } from 'next';
+import { firestore } from '@/lib/firebase';
+import { unstable_noStore as noStore } from 'next/cache';
 
 export const metadata: Metadata = {
     title: "Admin Dashboard | RugbyCare UG",
     description: "Manage and track registered players for the Athletes Medical Fund.",
 };
 
-// Mock data - replace with actual data fetching later
-const players = [
-    { name: "Jordan Kinyera", contact: "0781234567", rugbyClub: "Black Pirates", nextOfKinContact: "0751234567" },
-    { name: "Ivan Magomu", contact: "0782345678", rugbyClub: "Black Pirates", nextOfKinContact: "0752345678" },
-    { name: "Timothy Kisiga", contact: "0783456789", rugbyClub: "Black Pirates", nextOfKinContact: "0753456789" },
-    { name: "Michael Wokorach", contact: "0771234567", rugbyClub: "Heathens", nextOfKinContact: "0791234567" },
-    { name: "Aaron Ofoyrwoth", contact: "0772345678", rugbyClub: "Heathens", nextOfKinContact: "0792345678" },
-    { name: "Asuman Mugerwa", contact: "0773456789", rugbyClub: "Kobs", nextOfKinContact: "0793456789" },
-    { name: "Pius Ogena", contact: "0774567890", rugbyClub: "Kobs", nextOfKinContact: "0794567890" },
-    { name: "Solomon Okia", contact: "0775678901", rugbyClub: "Buffaloes", nextOfKinContact: "0795678901" },
-];
+interface Player {
+    id: string;
+    name: string;
+    contact: string;
+    rugbyClub: string;
+    nextOfKinContact: string;
+}
 
-const groupPlayersByClub = (playerList: typeof players) => {
+async function getPlayers(): Promise<Player[]> {
+    noStore(); // Ensures data is fetched on every request
+    try {
+        const playersSnapshot = await firestore.collection('players').orderBy('registeredAt', 'desc').get();
+        if (playersSnapshot.empty) {
+            console.log('No players found in Firestore.');
+            return [];
+        }
+        return playersSnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        } as Player));
+    } catch (error) {
+        console.error("Error fetching players:", error);
+        return []; // Return empty array on error
+    }
+}
+
+const groupPlayersByClub = (playerList: Player[]) => {
     return playerList.reduce((acc, player) => {
         const { rugbyClub } = player;
         if (!acc[rugbyClub]) {
@@ -51,11 +67,13 @@ const groupPlayersByClub = (playerList: typeof players) => {
         }
         acc[rugbyClub].push(player);
         return acc;
-    }, {} as Record<string, typeof players>);
+    }, {} as Record<string, Player[]>);
 };
 
-export default function AdminDashboard() {
+export default async function AdminDashboard() {
+    const players = await getPlayers();
     const groupedPlayers = groupPlayersByClub(players);
+    const hasPlayers = players.length > 0;
 
     return (
         <div className="flex flex-col min-h-screen bg-secondary">
@@ -73,52 +91,62 @@ export default function AdminDashboard() {
                             </div>
                         </CardHeader>
                         <CardContent className="p-0">
-                            <Accordion type="single" collapsible className="w-full">
-                                {Object.entries(groupedPlayers).map(([club, clubPlayers]) => (
-                                    <AccordionItem key={club} value={club}>
-                                        <AccordionTrigger className="px-6 py-4 hover:bg-muted/50 transition-colors">
-                                            <div className="flex items-center space-x-3">
-                                                <Shield className="h-5 w-5 text-primary/80" />
-                                                <span className="font-bold text-lg text-primary">{club}</span>
-                                                <span className="bg-primary text-primary-foreground rounded-full px-3 py-1 text-xs font-bold">
-                                                    {clubPlayers.length} Players
-                                                </span>
-                                            </div>
-                                        </AccordionTrigger>
-                                        <AccordionContent className="bg-card">
-                                            <div className="overflow-x-auto">
-                                                <Table>
-                                                    <TableHeader>
-                                                        <TableRow>
-                                                            <TableHead className="w-[40%]">Player Name</TableHead>
-                                                            <TableHead>Contact</TableHead>
-                                                            <TableHead>Next of Kin Contact</TableHead>
-                                                        </TableRow>
-                                                    </TableHeader>
-                                                    <TableBody>
-                                                        {clubPlayers.map((player) => (
-                                                            <TableRow key={player.name}>
-                                                                <TableCell>
-                                                                    <div className="flex items-center space-x-3">
-                                                                        <Avatar>
-                                                                            <AvatarFallback>
-                                                                                {player.name.split(' ').map(n => n[0]).join('')}
-                                                                            </AvatarFallback>
-                                                                        </Avatar>
-                                                                        <span className="font-medium">{player.name}</span>
-                                                                    </div>
-                                                                </TableCell>
-                                                                <TableCell>{player.contact}</TableCell>
-                                                                <TableCell>{player.nextOfKinContact}</TableCell>
+                            {hasPlayers ? (
+                                <Accordion type="single" collapsible className="w-full" defaultValue={Object.keys(groupedPlayers)[0]}>
+                                    {Object.entries(groupedPlayers).map(([club, clubPlayers]) => (
+                                        <AccordionItem key={club} value={club}>
+                                            <AccordionTrigger className="px-6 py-4 hover:bg-muted/50 transition-colors">
+                                                <div className="flex items-center space-x-3">
+                                                    <Shield className="h-5 w-5 text-primary/80" />
+                                                    <span className="font-bold text-lg text-primary">{club}</span>
+                                                    <span className="bg-primary text-primary-foreground rounded-full px-3 py-1 text-xs font-bold">
+                                                        {clubPlayers.length} Players
+                                                    </span>
+                                                </div>
+                                            </AccordionTrigger>
+                                            <AccordionContent className="bg-card">
+                                                <div className="overflow-x-auto">
+                                                    <Table>
+                                                        <TableHeader>
+                                                            <TableRow>
+                                                                <TableHead className="w-[40%]">Player Name</TableHead>
+                                                                <TableHead>Contact</TableHead>
+                                                                <TableHead>Next of Kin Contact</TableHead>
                                                             </TableRow>
-                                                        ))}
-                                                    </TableBody>
-                                                </Table>
-                                            </div>
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                ))}
-                            </Accordion>
+                                                        </TableHeader>
+                                                        <TableBody>
+                                                            {clubPlayers.map((player) => (
+                                                                <TableRow key={player.id}>
+                                                                    <TableCell>
+                                                                        <div className="flex items-center space-x-3">
+                                                                            <Avatar>
+                                                                                <AvatarFallback>
+                                                                                    {player.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                                                                                </AvatarFallback>
+                                                                            </Avatar>
+                                                                            <span className="font-medium">{player.name}</span>
+                                                                        </div>
+                                                                    </TableCell>
+                                                                    <TableCell>{player.contact}</TableCell>
+                                                                    <TableCell>{player.nextOfKinContact}</TableCell>
+                                                                </TableRow>
+                                                            ))}
+                                                        </TableBody>
+                                                    </Table>
+                                                </div>
+                                            </AccordionContent>
+                                        </AccordionItem>
+                                    ))}
+                                </Accordion>
+                            ) : (
+                                <div className="text-center py-20 px-6">
+                                    <AlertTriangle className="mx-auto h-12 w-12 text-muted-foreground" />
+                                    <h3 className="mt-4 text-lg font-semibold text-primary">No Players Registered Yet</h3>
+                                    <p className="mt-2 text-sm text-muted-foreground">
+                                        As players register through the form, they will appear here.
+                                    </p>
+                                </div>
+                            )}
                         </CardContent>
                     </Card>
                 </div>

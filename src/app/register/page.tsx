@@ -30,6 +30,9 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { useToast } from "@/hooks/use-toast";
 import { User, Phone, Shield, Users, HeartHandshake } from 'lucide-react';
+import { registerPlayer, type RegisterPlayerState } from "./actions";
+import { useFormState } from "react-dom";
+import { useEffect } from "react";
 
 
 const rugbyClubs = [
@@ -70,16 +73,28 @@ export default function RegisterPage() {
         },
     });
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values);
-        toast({
-            title: "Registration Successful!",
-            description: "Thank you for registering. We will be in touch shortly.",
-        });
-        form.reset();
-    }
+    const [state, formAction] = useFormState<RegisterPlayerState, FormData>(registerPlayer, {
+        status: 'idle',
+    });
 
-  return (
+    useEffect(() => {
+        if (state.status === 'success') {
+            toast({
+                title: "Registration Successful!",
+                description: "Thank you for registering. We will be in touch shortly.",
+            });
+            form.reset();
+        } else if (state.status === 'error') {
+            toast({
+                title: "Registration Failed",
+                description: state.message || "An unexpected error occurred.",
+                variant: "destructive",
+            });
+        }
+    }, [state, toast, form]);
+
+
+    return (
     <div className="flex flex-col min-h-screen bg-secondary">
         <Header />
         <main className="flex-grow flex items-center justify-center py-12 px-4">
@@ -93,7 +108,7 @@ export default function RegisterPage() {
                 </CardHeader>
                 <CardContent>
                     <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                        <form action={formAction} className="space-y-8">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <FormField
                                     control={form.control}
@@ -133,7 +148,7 @@ export default function RegisterPage() {
                                     render={({ field }) => (
                                         <FormItem>
                                             <FormLabel>Rugby Club</FormLabel>
-                                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                            <Select onValueChange={field.onChange} defaultValue={field.value} name={field.name}>
                                                 <FormControl>
                                                     <div className="relative">
                                                         <Shield className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -179,6 +194,7 @@ export default function RegisterPage() {
                                             <Checkbox
                                                 checked={field.value}
                                                 onCheckedChange={field.onChange}
+                                                name={field.name}
                                             />
                                         </FormControl>
                                         <div className="space-y-1 leading-none">
@@ -193,7 +209,9 @@ export default function RegisterPage() {
                                     </FormItem>
                                 )}
                             />
-                            <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-lg py-6">Register Now</Button>
+                            <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-lg py-6" disabled={form.formState.isSubmitting}>
+                                {form.formState.isSubmitting ? 'Registering...' : 'Register Now'}
+                            </Button>
                         </form>
                     </Form>
                 </CardContent>
