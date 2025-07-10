@@ -23,14 +23,10 @@ import {
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { Shield, Users, AlertTriangle, LogOut } from "lucide-react";
+import { Shield, Users, AlertTriangle } from "lucide-react";
 import type { Metadata } from 'next';
 import { firestore } from '@/lib/firebase';
 import { unstable_noStore as noStore } from 'next/cache';
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
-import { logout } from "./actions";
-import { Button } from "@/components/ui/button"
 
 export const metadata: Metadata = {
     title: "Admin Dashboard | RugbyCare UG",
@@ -75,13 +71,6 @@ const groupPlayersByClub = (playerList: Player[]) => {
 };
 
 export default async function AdminDashboard() {
-    const cookieStore = cookies();
-    const authToken = cookieStore.get('auth-token');
-
-    if (!authToken || authToken.value !== process.env.ADMIN_AUTH_TOKEN) {
-        redirect('/admin/login');
-    }
-
     const players = await getPlayers();
     const groupedPlayers = groupPlayersByClub(players);
     const hasPlayers = players.length > 0;
@@ -93,19 +82,12 @@ export default async function AdminDashboard() {
                 <div className="max-w-7xl mx-auto">
                     <Card className="overflow-hidden shadow-2xl">
                         <CardHeader className="bg-card">
-                            <div className="flex items-center justify-between">
-                                <div className="flex items-center space-x-4">
-                                    <Users className="h-10 w-10 text-primary" />
-                                    <div>
-                                        <CardTitle className="text-3xl font-bold text-primary">Admin Dashboard</CardTitle>
-                                        <CardDescription>Track and manage registered players by their club.</CardDescription>
-                                    </div>
+                            <div className="flex items-center space-x-4">
+                                <Users className="h-10 w-10 text-primary" />
+                                <div>
+                                    <CardTitle className="text-3xl font-bold text-primary">Admin Dashboard</CardTitle>
+                                    <CardDescription>Track and manage registered players by their club.</CardDescription>
                                 </div>
-                                <form action={logout}>
-                                    <Button type="submit" variant="outline">
-                                        <LogOut className="mr-2 h-4 w-4" /> Log Out
-                                    </Button>
-                                </form>
                             </div>
                         </CardHeader>
                         <CardContent className="p-0">
