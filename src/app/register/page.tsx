@@ -9,7 +9,9 @@ import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -22,7 +24,7 @@ import { useToast } from "@/hooks/use-toast";
 import { User, Phone, Shield, Users, HeartHandshake } from 'lucide-react';
 import { registerPlayer, type RegisterPlayerState } from "./actions";
 
-const rugbyClubsAndSchools = [
+const clubs = [
     "Black Pirates",
     "Heathens",
     "Kobs",
@@ -35,6 +37,9 @@ const rugbyClubsAndSchools = [
     "Rams",
     "Eagles",
     "Jinja Hippos",
+];
+
+const schools = [
     "Namilyango College",
     "St. Mary's College Kisubi",
     "King's College Budo",
@@ -42,16 +47,14 @@ const rugbyClubsAndSchools = [
     "Makerere College School",
     "London College of St. Lawrence",
     "Greenhill Academy",
-    "Other"
 ];
 
 export default function RegisterPage() {
     const { toast } = useToast();
     const formRef = useRef<HTMLFormElement>(null);
     
-    const [state, formAction] = useActionState<RegisterPlayerState, FormData>(registerPlayer, {
-        status: 'idle',
-    });
+    const initialState: RegisterPlayerState = { status: 'idle' };
+    const [state, formAction] = useActionState<RegisterPlayerState, FormData>(registerPlayer, initialState);
 
     useEffect(() => {
         if (state.status === 'success') {
@@ -60,7 +63,7 @@ export default function RegisterPage() {
                 description: "Thank you for registering. We will be in touch shortly.",
             });
             formRef.current?.reset();
-        } else if (state.status === 'error' && state.message) {
+        } else if (state.status === 'error' && state.message && !state.errors) {
              toast({
                 title: "Registration Failed",
                 description: state.message || "An unexpected error occurred.",
@@ -109,9 +112,19 @@ export default function RegisterPage() {
                                             <SelectValue placeholder="Select your club or school" />
                                         </SelectTrigger>
                                         <SelectContent>
-                                            {rugbyClubsAndSchools.map(item => (
-                                                <SelectItem key={item} value={item}>{item}</SelectItem>
-                                            ))}
+                                            <SelectGroup>
+                                                <SelectLabel>Clubs</SelectLabel>
+                                                {clubs.map(item => (
+                                                    <SelectItem key={item} value={item}>{item}</SelectItem>
+                                                ))}
+                                            </SelectGroup>
+                                            <SelectGroup>
+                                                <SelectLabel>Schools</SelectLabel>
+                                                {schools.map(item => (
+                                                    <SelectItem key={item} value={item}>{item}</SelectItem>
+                                                ))}
+                                            </SelectGroup>
+                                            <SelectItem value="Other">Other</SelectItem>
                                         </SelectContent>
                                     </Select>
                                 </div>
