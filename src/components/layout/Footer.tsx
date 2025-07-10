@@ -42,9 +42,18 @@ export default function Footer() {
                         <div className="space-y-3 text-primary-foreground/80 font-body">
                             <p className="flex items-start"><MapPin className="mr-3 text-accent mt-1 h-5 w-5 shrink-0" /> Kampala, Uganda</p>
                             <p className="flex items-start"><MapPin className="mr-3 text-accent mt-1 h-5 w-5 shrink-0" /> Room1-Lugogo Tennis Court</p>
-                            <p className="flex items-center"><Phone className="mr-3 text-accent h-5 w-5 shrink-0" /> +256 773 207 919</p>
-                            <p className="flex items-center"><Phone className="mr-3 text-accent h-5 w-5 shrink-0" /> +256 767 001 907</p>
-                            <p className="flex items-center"><Mail className="mr-3 text-accent h-5 w-5 shrink-0" /> kayondoronniejrfoundation@gmail.com</p>
+                            <a href="tel:+256773207919" className="flex items-center hover:text-accent transition">
+                                <Phone className="mr-3 text-accent h-5 w-5 shrink-0" />
+                                <span>+256 773 207 919</span>
+                            </a>
+                            <a href="tel:+256767001907" className="flex items-center hover:text-accent transition">
+                                <Phone className="mr-3 text-accent h-5 w-5 shrink-0" />
+                                <span>+256 767 001 907</span>
+                            </a>
+                            <a href="mailto:kayondoronniejrfoundation@gmail.com" className="flex items-center hover:text-accent transition">
+                                <Mail className="mr-3 text-accent h-5 w-5 shrink-0" />
+                                <span>kayondoronniejrfoundation@gmail.com</span>
+                            </a>
                         </div>
                     </div>
                 </div>
