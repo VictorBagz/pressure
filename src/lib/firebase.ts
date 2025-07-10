@@ -1,3 +1,4 @@
+
 import admin from 'firebase-admin';
 
 // Load environment variables on the server
@@ -37,7 +38,7 @@ if (!admin.apps.length) {
       databaseURL: `https://${projectId}.firebaseio.com`,
     });
   } catch (error: any) {
-    console.error('Firebase admin initialization error', error);
+    console.error('Firebase admin initialization error. Credentials used:', { projectId, clientEmail });
     throw new Error(`Firebase admin initialization error: ${error.message}`);
   }
 }
