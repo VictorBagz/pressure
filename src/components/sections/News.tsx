@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -36,6 +39,9 @@ const newsData = [
 ];
 
 export default function News() {
+  const [showAll, setShowAll] = useState(false);
+  const displayedNews = showAll ? newsData : newsData.slice(0, 2);
+
   return (
     <section id="news" className="py-20 bg-secondary">
       <div className="container mx-auto px-6">
@@ -49,7 +55,7 @@ export default function News() {
         </AnimateOnScroll>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {newsData.map((item, index) => (
+          {displayedNews.map((item, index) => (
             <AnimateOnScroll
               key={index}
               initialClass="opacity-0 scale-95"
@@ -87,6 +93,14 @@ export default function News() {
             </AnimateOnScroll>
           ))}
         </div>
+
+        {!showAll && newsData.length > 2 && (
+          <div className="text-center mt-12">
+            <Button onClick={() => setShowAll(true)} size="lg">
+              More News
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
