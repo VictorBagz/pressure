@@ -22,7 +22,7 @@ import { useToast } from "@/hooks/use-toast";
 import { User, Phone, Shield, Users, HeartHandshake } from 'lucide-react';
 import { registerPlayer, type RegisterPlayerState } from "./actions";
 
-const rugbyClubs = [
+const rugbyClubsAndSchools = [
     "Black Pirates",
     "Heathens",
     "Kobs",
@@ -34,7 +34,15 @@ const rugbyClubs = [
     "Impis",
     "Rams",
     "Eagles",
-    "Jinja Hippos"
+    "Jinja Hippos",
+    "Namilyango College",
+    "St. Mary's College Kisubi",
+    "King's College Budo",
+    "Hana Mixed School",
+    "Makerere College School",
+    "London College of St. Lawrence",
+    "Greenhill Academy",
+    "Other"
 ];
 
 export default function RegisterPage() {
@@ -93,16 +101,16 @@ export default function RegisterPage() {
                                 {state.errors?.contact && <p className="text-sm font-medium text-destructive">{state.errors.contact[0]}</p>}
                             </div>
                             <div className="space-y-2">
-                                <Label htmlFor="rugbyClub">Rugby Club</Label>
+                                <Label htmlFor="rugbyClub">Rugby Club / School</Label>
                                 <div className="relative">
                                      <Shield className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground z-10" />
                                     <Select name="rugbyClub">
                                         <SelectTrigger className="pl-10" id="rugbyClub">
-                                            <SelectValue placeholder="Select your club" />
+                                            <SelectValue placeholder="Select your club or school" />
                                         </SelectTrigger>
                                         <SelectContent>
-                                            {rugbyClubs.map(club => (
-                                                <SelectItem key={club} value={club}>{club}</SelectItem>
+                                            {rugbyClubsAndSchools.map(item => (
+                                                <SelectItem key={item} value={item}>{item}</SelectItem>
                                             ))}
                                         </SelectContent>
                                     </Select>
