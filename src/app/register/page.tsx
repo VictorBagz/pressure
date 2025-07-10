@@ -1,10 +1,8 @@
 
 'use client';
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
 import Link from 'next/link';
+import { useActionState, useEffect, useRef } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -31,8 +29,6 @@ import Footer from "@/components/layout/Footer";
 import { useToast } from "@/hooks/use-toast";
 import { User, Phone, Shield, Users, HeartHandshake } from 'lucide-react';
 import { registerPlayer, type RegisterPlayerState } from "./actions";
-import { useActionState, useEffect } from "react";
-
 
 const rugbyClubs = [
     "Black Pirates",
@@ -49,29 +45,10 @@ const rugbyClubs = [
     "Jinja Hippos"
 ];
 
-const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  contact: z.string().min(10, { message: "Please enter a valid contact number." }),
-  rugbyClub: z.string({ required_error: "Please select a rugby club." }),
-  nextOfKinContact: z.string().min(10, { message: "Please enter a valid contact number for next of kin." }),
-  terms: z.boolean().refine(val => val === true, {
-    message: "You must accept the terms and conditions to register.",
-  }),
-});
-
 export default function RegisterPage() {
     const { toast } = useToast();
-
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
-        defaultValues: {
-            name: "",
-            contact: "",
-            nextOfKinContact: "",
-            terms: false,
-        },
-    });
-
+    const formRef = useRef<HTMLFormElement>(null);
+    
     const [state, formAction] = useActionState<RegisterPlayerState, FormData>(registerPlayer, {
         status: 'idle',
     });
@@ -82,16 +59,15 @@ export default function RegisterPage() {
                 title: "Registration Successful!",
                 description: "Thank you for registering. We will be in touch shortly.",
             });
-            form.reset();
-        } else if (state.status === 'error') {
-            toast({
+            formRef.current?.reset();
+        } else if (state.status === 'error' && state.message) {
+             toast({
                 title: "Registration Failed",
                 description: state.message || "An unexpected error occurred.",
                 variant: "destructive",
             });
         }
-    }, [state, toast, form]);
-
+    }, [state, toast]);
 
     return (
     <div className="flex flex-col min-h-screen bg-secondary">
@@ -106,113 +82,68 @@ export default function RegisterPage() {
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <Form {...form}>
-                        <form action={formAction} className="space-y-8">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <FormField
-                                    control={form.control}
-                                    name="name"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Full Name</FormLabel>
-                                            <FormControl>
-                                                <div className="relative">
-                                                    <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                                                    <Input placeholder="Your Full Name" {...field} className="pl-10" />
-                                                </div>
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={form.control}
-                                    name="contact"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Your Contact Number</FormLabel>
-                                            <FormControl>
-                                                <div className="relative">
-                                                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                                                    <Input placeholder="Your Tel Number" {...field} className="pl-10" />
-                                                </div>
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={form.control}
-                                    name="rugbyClub"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Rugby Club</FormLabel>
-                                            <Select onValueChange={field.onChange} defaultValue={field.value} name={field.name}>
-                                                <FormControl>
-                                                    <div className="relative">
-                                                        <Shield className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                                                        <SelectTrigger className="pl-10">
-                                                            <SelectValue placeholder="Select your club" />
-                                                        </SelectTrigger>
-                                                    </div>
-                                                </FormControl>
-                                                <SelectContent>
-                                                    {rugbyClubs.map(club => (
-                                                        <SelectItem key={club} value={club}>{club}</SelectItem>
-                                                    ))}
-                                                </SelectContent>
-                                            </Select>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={form.control}
-                                    name="nextOfKinContact"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Next of Kin Contact</FormLabel>
-                                            <FormControl>
-                                                 <div className="relative">
-                                                    <Users className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                                                    <Input placeholder="Next of Kin Contact" {...field} className="pl-10" />
-                                                </div>
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
+                    <form ref={formRef} action={formAction} className="space-y-8">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-2">
+                                <Label htmlFor="name">Full Name</Label>
+                                <div className="relative">
+                                    <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                                    <Input id="name" name="name" placeholder="Your Full Name" className="pl-10" required />
+                                </div>
+                                {state.errors?.name && <p className="text-sm font-medium text-destructive">{state.errors.name[0]}</p>}
                             </div>
-                            
-                            <FormField
-                                control={form.control}
-                                name="terms"
-                                render={({ field }) => (
-                                    <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4 shadow-sm">
-                                        <FormControl>
-                                            <Checkbox
-                                                checked={field.value}
-                                                onCheckedChange={field.onChange}
-                                                name={field.name}
-                                            />
-                                        </FormControl>
-                                        <div className="space-y-1 leading-none">
-                                            <FormLabel>
-                                                Accept terms and conditions
-                                            </FormLabel>
-                                            <FormDescription>
-                                                You agree to our <Link href="#" className="text-primary hover:underline">Terms of Service</Link> and <Link href="#" className="text-primary hover:underline">Privacy Policy</Link>.
-                                            </FormDescription>
-                                            <FormMessage />
-                                        </div>
-                                    </FormItem>
-                                )}
-                            />
-                            <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-lg py-6" disabled={form.formState.isSubmitting}>
-                                {form.formState.isSubmitting ? 'Registering...' : 'Register Now'}
-                            </Button>
-                        </form>
-                    </Form>
+                            <div className="space-y-2">
+                                <Label htmlFor="contact">Your Contact Number</Label>
+                                <div className="relative">
+                                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                                    <Input id="contact" name="contact" placeholder="Your Tel Number" className="pl-10" required />
+                                </div>
+                                {state.errors?.contact && <p className="text-sm font-medium text-destructive">{state.errors.contact[0]}</p>}
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="rugbyClub">Rugby Club</Label>
+                                <div className="relative">
+                                     <Shield className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground z-10" />
+                                    <Select name="rugbyClub">
+                                        <SelectTrigger className="pl-10" id="rugbyClub">
+                                            <SelectValue placeholder="Select your club" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            {rugbyClubs.map(club => (
+                                                <SelectItem key={club} value={club}>{club}</SelectItem>
+                                            ))}
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                                {state.errors?.rugbyClub && <p className="text-sm font-medium text-destructive">{state.errors.rugbyClub[0]}</p>}
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="nextOfKinContact">Next of Kin Contact</Label>
+                                 <div className="relative">
+                                    <Users className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                                    <Input id="nextOfKinContact" name="nextOfKinContact" placeholder="Next of Kin Contact" className="pl-10" required />
+                                </div>
+                                {state.errors?.nextOfKinContact && <p className="text-sm font-medium text-destructive">{state.errors.nextOfKinContact[0]}</p>}
+                            </div>
+                        </div>
+                        
+                        <div className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4 shadow-sm">
+                            <Checkbox id="terms" name="terms" />
+                            <div className="space-y-1 leading-none">
+                                <Label htmlFor="terms">
+                                    Accept terms and conditions
+                                </Label>
+                                <FormDescription>
+                                    You agree to our <Link href="#" className="text-primary hover:underline">Terms of Service</Link> and <Link href="#" className="text-primary hover:underline">Privacy Policy</Link>.
+                                </FormDescription>
+                                {state.errors?.terms && <p className="text-sm font-medium text-destructive">{state.errors.terms[0]}</p>}
+                            </div>
+                        </div>
+
+                        <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-lg py-6">
+                            Register Now
+                        </Button>
+                    </form>
                 </CardContent>
             </Card>
         </main>
