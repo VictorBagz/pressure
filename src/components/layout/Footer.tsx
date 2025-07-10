@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { MapPin, Phone, Mail, Facebook, Twitter, Instagram } from 'lucide-react';
+import { MapPin, Phone, Mail, Twitter, } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Footer() {
@@ -19,11 +19,9 @@ export default function Footer() {
                             data-ai-hint="logo"
                           />
                         </Link>
-                        <p className="text-primary-foreground/80 mb-4 font-body">Providing comprehensive medical insurance coverage for rugby players across Uganda since 2019.</p>
+                        <p className="text-primary-foreground/80 mb-4 font-body">Providing comprehensive medical insurance coverage for rugby players across Uganda since 2025.</p>
                         <div className="flex space-x-4">
-                            <a href="#" className="text-primary-foreground/80 hover:text-accent transition"><Facebook /></a>
                             <a href="#" className="text-primary-foreground/80 hover:text-accent transition"><Twitter /></a>
-                            <a href="#" className="text-primary-foreground/80 hover:text-accent transition"><Instagram /></a>
                         </div>
                     </div>
                     
