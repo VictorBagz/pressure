@@ -13,19 +13,19 @@ import {
 import AnimateOnScroll from '../AnimateOnScroll';
 
 const partnersList = [
-  { name: 'UAP Old Mutual', src: '/photos/ugandaCTA.png', hint: 'insurance logo' },
-  { name: 'Jubilee Insurance', src: '/photos/kisubiH.jpg', hint: 'insurance logo' },
-  { name: 'Case Hospital', src: '/photos/marie.jpeg', hint: 'hospital logo' },
-  { name: 'Nakasero Hospital', src: '/photos/mengo.jpeg', hint: 'hospital logo' },
-  { name: 'AAR Healthcare', src: '/photos/norvik.jpeg', hint: 'clinic logo' },
-  { name: 'IMG', src: '/photos/mildmay.jpg', hint: 'medical group' },
-  { name: 'Prudential', src: '/photos/ruby.jpeg', hint: 'insurance logo' },
-  { name: 'Minet', src: '/photos/minet.jpeg', hint: 'insurance broker logo' },
-  { name: 'ICEA Lion', src: '/photos/savannah.png', hint: 'insurance logo' },
-  { name: 'TMR International Hospital', src: '/photos/medipal.jpeg', hint: 'hospital logo' },
-  { name: 'Kampala Hospital', src: '/photos/umc.jpeg', hint: 'hospital logo' },
-  { name: 'Resolution Insurance', src: '/photos/lifelink.jpg', hint: 'insurance logo' },
-  { name: 'Sanlam', src: '/photos/paragon.jpeg', hint: 'insurance logo' },
+  { name: 'Heathens', src: '/photos/heathens.jpg', hint: 'heathens logo' },
+  { name: 'Buffaloes', src: '/photos/buffaloes.jpg', hint: 'buffaloes logo' },
+  { name: 'Eagles', src: '/photos/EAGLES.jpeg', hint: 'eagles logo' },
+  { name: 'Hippos', src: '/photos/hippos.jpg', hint: 'hospital logo' },
+  { name: 'AAR Healthcare', src: '/photos/kyambogo.jpg', hint: 'clinic logo' },
+  { name: 'IMG', src: '/photos/kobs.jpg', hint: 'medical group' },
+  { name: 'Prudential', src: '/photos/impis.jpg', hint: 'insurance logo' },
+  { name: 'Minet', src: '/photos/rhinos.jpg', hint: 'insurance broker logo' },
+  { name: 'ICEA Lion', src: '/photos/thunderbirds.jpg', hint: 'insurance logo' },
+  { name: 'TMR International Hospital', src: '/photos/toorolions.jpg', hint: 'hospital logo' },
+  { name: 'Kampala Hospital', src: '/photos/mongers.jpg', hint: 'hospital logo' },
+  { name: 'Resolution Insurance', src: '/photos/pirates.jpg', hint: 'insurance logo' },
+  { name: 'Sanlam', src: '/photos/blackpearls.jpg', hint: 'insurance logo' },
 ];
 
 export default function Partners() {

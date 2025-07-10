@@ -3,10 +3,11 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Calendar } from 'lucide-react';
 import AnimateOnScroll from '@/components/AnimateOnScroll';
+import Link from 'next/link';
 
 const newsData = [
   {
@@ -40,7 +41,7 @@ const newsData = [
 
 export default function News() {
   const [showAll, setShowAll] = useState(false);
-  const displayedNews = showAll ? newsData : newsData.slice(0, 2);
+  const displayedNews = showAll ? newsData : newsData.slice(0, 3);
 
   return (
     <section id="news" className="py-20 bg-secondary">
@@ -63,41 +64,42 @@ export default function News() {
               className="transition-all duration-500"
               threshold={0.2}
             >
-              <Card className="flex flex-col h-full overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                <div className="relative h-56 w-full">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    data-ai-hint={item.aiHint}
-                  />
-                </div>
-                <CardHeader>
-                  <Badge variant="secondary" className="w-fit mb-2">{item.category}</Badge>
-                  <CardTitle className="text-xl leading-snug text-primary">{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground font-body">{item.excerpt}</p>
-                </CardContent>
-                <CardFooter className="flex justify-between items-center text-sm text-muted-foreground pt-4 border-t">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="h-4 w-4" />
-                    <span>{item.date}</span>
+              <Link href={item.link} className="group block">
+                <Card className="flex flex-col h-full overflow-hidden rounded-xl shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-2">
+                  <div className="relative h-56 w-full">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      data-ai-hint={item.aiHint}
+                      className="transition-transform duration-300 group-hover:scale-105"
+                    />
+                     <Badge variant="secondary" className="absolute top-3 right-3 text-sm">{item.category}</Badge>
                   </div>
-                  <a href={item.link} className="text-primary font-semibold hover:underline flex items-center gap-1">
-                    Read More <ArrowRight className="h-4 w-4" />
-                  </a>
-                </CardFooter>
-              </Card>
+                  <CardHeader>
+                    <CardTitle className="text-xl leading-snug text-primary group-hover:text-accent transition-colors">
+                      {item.title}
+                    </CardTitle>
+                     <div className="flex items-center gap-2 text-sm text-muted-foreground pt-2">
+                        <Calendar className="h-4 w-4" />
+                        <span>{item.date}</span>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <p className="text-muted-foreground font-body">{item.excerpt}</p>
+                  </CardContent>
+                </Card>
+              </Link>
             </AnimateOnScroll>
           ))}
         </div>
 
-        {!showAll && newsData.length > 2 && (
+        {!showAll && newsData.length > 3 && (
           <div className="text-center mt-12">
-            <Button onClick={() => setShowAll(true)} size="lg">
-              More News
+            <Button onClick={() => setShowAll(true)} size="lg" className="bg-primary hover:bg-primary/90">
+              <ArrowRight className="mr-2 h-5 w-5" />
+              View More News
             </Button>
           </div>
         )}
