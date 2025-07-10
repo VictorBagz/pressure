@@ -12,7 +12,7 @@ const navLinks = [
   { href: '#story-impact', label: 'Impact' },
   { href: '#story', label: 'Our Story' },
   { href: '#players', label: 'Players' },
-  { href: '/donate', label: 'Donate' },
+  { href: '#donate-section', label: 'Donate' },
 ];
 
 export default function Header() {

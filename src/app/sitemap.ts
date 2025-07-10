@@ -9,12 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: 'https://studio--rugbycare-ug.us-central1.hosted.app/donate',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
       url: 'https://studio--rugbycare-ug.us-central1.hosted.app/partner',
       lastModified: new Date(),
       changeFrequency: 'monthly',
