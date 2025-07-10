@@ -34,10 +34,10 @@ export default function Hero() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground transform transition-all hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]">
-              <a href="#players">
+              <Link href="/partner">
                 <UserPlus className="mr-2 h-5 w-5" />
                  Become a partner
-              </a>
+              </Link>
             </Button>
             <Button asChild size="lg" className="bg-accent hover:bg-accent/80 text-accent-foreground transform transition-all hover:scale-105 hover:shadow-[0_0_15px_hsl(var(--accent))]">
               <Link href="https://tip.vanvaa.com/?q=MTcxMg==">
