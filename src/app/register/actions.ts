@@ -10,7 +10,7 @@ const formSchema = z.object({
   contact: z.string().min(10, { message: "Please enter a valid contact number." }),
   rugbyClub: z.string({ required_error: "Please select a rugby club." }),
   nextOfKinContact: z.string().min(10, { message: "Please enter a valid contact number for next of kin." }),
-  terms: z.preprocess((val) => val === 'on', z.boolean().refine(val => val === true, {
+  terms: z.preprocess((val) => val === 'on' || val === true, z.boolean().refine(val => val === true, {
     message: "You must accept the terms and conditions to register.",
   })),
 });
