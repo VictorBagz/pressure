@@ -37,6 +37,44 @@ const clubs = [
     "Rams",
     "Eagles",
     "Jinja Hippos",
+    "Njeru Hurricanes",
+    "Kigezi Silverbacks",
+    "Gulu City Falcons",
+    "Elgon Wolves",
+    "Kitgum Lions",
+    "Tooro Lions",
+    "Nile Rapids",
+    "Thunderbirds",
+    "Kigezi Queens",
+    "Lady Pacers",
+    "Victoria Sharks",
+    "Black Pearls",
+    "Kitgum Queens",
+    "Panthers",
+    "Walukuba Titans",
+    "Ewes",
+    "She Wolves",
+    "Kakira Simbas",
+    "Kiu Crows",
+    "Mbarara Titans",
+    "Mbale Elephants",
+    "Soroti Rangers",
+    "Mbale Eagles",
+    "Lira Big Boys",
+    "Nile Leopards",
+    "Mukono Hawks",
+    "Kisubi Pacers",
+    "Jaguars",
+    "Swans",
+    "Blue Phoenix",
+    "Kyambogo",
+    "Walukuba",
+    "Avengers",
+    "Golden Badgers",
+    "Uganda Rugby Vets",
+    "Black Arrows",
+    "Omoro King",
+    "Tororo Crest",
 ];
 
 const schools = [
@@ -49,10 +87,22 @@ const schools = [
     "Greenhill Academy",
     "Hana International",
     "Sir Samuel Baker",
-    "St,Joseph's Layibi",
+    "St.Joseph's Layibi",
     "Mwiri College",
     "Jinja ss",
-    "Mbarara High"
+    "Mbarara High",
+    "Butiki College",
+    "Ntare High",
+    "Merryland High School",
+    "Luigi Guissani",
+    "Kololo High",
+    "Spena",
+    "Nkoma",
+    "Dr.Obote College",
+    "Lango College",
+    "Vienna College",
+    "Entebbe Airforce",
+    "Entebbe Parents",
 ];
 
 export default function RegisterPage() {
@@ -113,7 +163,7 @@ export default function RegisterPage() {
                                 <Label htmlFor="rugbyClub">Rugby Club / School</Label>
                                 <div className="relative">
                                      <Shield className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground z-10" />
-                                    <Select name="rugbyClub">
+                                    <Select name="rugbyClub" required>
                                         <SelectTrigger className="pl-10" id="rugbyClub">
                                             <SelectValue placeholder="Select your club or school" />
                                         </SelectTrigger>
@@ -147,7 +197,7 @@ export default function RegisterPage() {
                         </div>
                         
                         <div className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4 shadow-sm">
-                            <Checkbox id="terms" name="terms" />
+                            <Checkbox id="terms" name="terms" required />
                             <div className="space-y-1 leading-none">
                                 <Label htmlFor="terms">
                                     Accept terms and conditions
