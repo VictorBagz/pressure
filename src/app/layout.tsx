@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   description: 'Support the Kayondo Ronnie Jr Foundation in providing essential medical insurance and sports injury coverage for over 5,400 rugby players across Uganda. Your donation to the Athletes Medical Fund ensures their safety and future in the sport.',
   keywords: 'Rugby Uganda, Ugandan rugby players, rugby medical insurance, sports injury insurance Uganda, player safety Uganda, Kayondo Ronnie Jr Foundation, Athletes Medical Fund Uganda, RugbyCare UG, donate rugby Uganda, support Ugandan athletes, uganda rugby, insurance, medical cover, rugby insurance, athletes medical fund, medical fund, kayondo ronnie foundation',
   icons: {
-    icon: '/photos/medicalfundLogo.jpeg',
-    shortcut: '/photos/medicalfundLogo.jpeg',
-    apple: '/photos/medicalfundLogo.jpeg',
+    icon: '/photos/medicalfundLogo.jpeg?v=2',
+    shortcut: '/photos/medicalfundLogo.jpeg?v=2',
+    apple: '/photos/medicalfundLogo.jpeg?v=2',
   },
 };
 
