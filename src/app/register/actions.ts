@@ -40,6 +40,20 @@ export async function registerPlayer(
   }
 
   try {
+    const { contact } = validatedFields.data;
+
+    // Check for existing player with the same contact number
+    const playersRef = firestore.collection('players');
+    const snapshot = await playersRef.where('contact', '==', contact).get();
+
+    if (!snapshot.empty) {
+      return {
+        status: 'error',
+        message: 'A player with this contact number is already registered.',
+      };
+    }
+
+    // If no player exists, proceed with registration
     const { terms, ...playerData } = validatedFields.data;
     const docRef = await firestore.collection('players').add({
         ...playerData,
