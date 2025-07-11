@@ -11,6 +11,7 @@ import Video from '@/components/sections/Video';
 import BecomePartner from '@/components/sections/BecomePartner';
 import Solutions from '@/components/sections/Solutions';
 import ServiceProviders from '@/components/sections/ServiceProviders';
+import PoweredBy from '@/components/sections/PoweredBy';
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         <Players />
         <DonateSection />
         <ServiceProviders />
+        <PoweredBy />
         <BecomePartner />
         <Partners />
       </main>
