@@ -1,4 +1,4 @@
-import { Building2, Handshake, Download, Send, Flag, ShieldCheck, Award, BarChart3 } from 'lucide-react';
+import { Building2, Handshake, Download, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import {
@@ -8,29 +8,6 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-
-const partnershipBenefits = [
-  {
-    icon: Flag,
-    title: 'Brand Visibility',
-    description: 'Logo placement on jerseys, event materials, and digital platforms.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Community Impact',
-    description: 'Direct involvement in grassroots sports development.',
-  },
-  {
-    icon: Award,
-    title: 'Award Recognition',
-    description: 'Annual partner appreciation events and community service awards.',
-  },
-  {
-    icon: BarChart3,
-    title: 'Impact Reports',
-    description: 'Quarterly updates on how your partnership is making a difference.',
-  },
-];
 
 export default function BecomePartner() {
   return (
@@ -44,16 +21,6 @@ export default function BecomePartner() {
           <p className="text-lg text-muted-foreground mb-8 font-body">
             We offer a range of partnership packages to suit your organization's goals. Let's discuss how we can work together.
           </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {partnershipBenefits.map((benefit) => (
-              <div key={benefit.title} className="bg-secondary/60 rounded-xl p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                <benefit.icon className="h-8 w-8 text-primary mx-auto mb-4" />
-                <h3 className="text-md font-semibold text-primary mb-2">{benefit.title}</h3>
-                <p className="text-muted-foreground font-body text-xs leading-relaxed">{benefit.description}</p>
-              </div>
-            ))}
-          </div>
 
           <DropdownMenu>
               <DropdownMenuTrigger asChild>
