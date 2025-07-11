@@ -11,7 +11,7 @@ import {
 
 export default function BecomePartner() {
   return (
-    <section id="become-partner" className="pt-0.5 pb-20 bg-card">
+    <section id="become-partner" className="pt-0.5 pb-0 bg-card">
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto text-center">
           <Building2 className="h-12 w-12 mx-auto text-primary mb-6" />
