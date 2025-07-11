@@ -11,30 +11,30 @@ import Link from 'next/link';
 
 const newsData = [
   {
-    image: '/photos/pirates.jpeg',
+    image: '/photos/action2.jpeg',
     aiHint: 'rugby team huddle',
     category: 'Tournament',
     title: 'Pirates Clinch National Sevens Title in Thrilling Final',
     excerpt: 'The Pirates defeated the Heathens in a nail-biting final to be crowned champions of the National Sevens Series.',
-    date: 'October 28, 2024',
+    date: 'June 30, 2025',
     link: '#',
   },
   {
-    image: '/photos/community.jpeg',
+    image: '/photos/minet.jpeg',
     aiHint: 'charity event handshake',
     category: 'Community',
     title: 'Foundation Partners with Local Schools for Youth Clinic',
     excerpt: 'We successfully hosted a rugby clinic for over 200 children, promoting the sport and its values.',
-    date: 'October 15, 2024',
+    date: 'June 15, 2025',
     link: '#',
   },
   {
-    image: '/photos/player-spotlight.jpeg',
+    image: '/photos/wokos.jpeg',
     aiHint: 'player signing autograph',
     category: 'Player Spotlight',
     title: 'Rising Star: A Conversation with Adrian Kasito',
     excerpt: 'We sat down with the Kobs scrum-half to discuss his journey, ambitions, and player welfare.',
-    date: 'September 29, 2024',
+    date: 'July 11, 2025',
     link: '#',
   },
    {
@@ -90,9 +90,6 @@ export default function News() {
             <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-4">
             Latest News & Updates
             </h2>
-            <p className="text-lg text-muted-foreground text-center mb-12 font-body max-w-3xl mx-auto">
-            Stay informed about our impact, community events, and the stories of the players you support.
-            </p>
         </AnimateOnScroll>
 
         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6">

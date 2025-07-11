@@ -36,9 +36,6 @@ export default function Partners() {
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
             Our Proud Partners
           </h2>
-          <p className="text-lg text-muted-foreground font-body">
-            We are grateful for the support of our partners who make our work possible.
-          </p>
         </AnimateOnScroll>
         
         <AnimateOnScroll 
@@ -51,7 +48,7 @@ export default function Partners() {
                 align: 'start',
                 loop: true,
               }}
-              className="w-full max-w-6xl mx-auto"
+              className="w-full max-w-6xl mx-auto relative pb-16" // Added relative and padding-bottom
             >
               <CarouselContent className="-ml-4">
                 {partnersList.map((partner, index) => (
@@ -71,8 +68,10 @@ export default function Partners() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="hidden sm:flex" />
-              <CarouselNext className="hidden sm:flex" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center justify-center gap-4">
+                  <CarouselPrevious className="relative -left-2 transform-none static animate-float bg-card/80 backdrop-blur-sm text-primary hover:bg-card hover:text-accent border-primary/20 shadow-lg" />
+                  <CarouselNext className="relative -right-2 transform-none static animate-float bg-card/80 backdrop-blur-sm text-primary hover:bg-card hover:text-accent border-primary/20 shadow-lg" />
+              </div>
             </Carousel>
         </AnimateOnScroll>
       </div>
