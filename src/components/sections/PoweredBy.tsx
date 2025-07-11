@@ -9,11 +9,8 @@ export default function PoweredBy() {
       <div className="container mx-auto px-6">
         <AnimateOnScroll className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 font-heading">
-            Our Official Insurance Partner
+            Powered by
           </h2>
-          <p className="text-lg text-muted-foreground mb-10">
-            Our program is proudly insured by Minet, ensuring reliable and comprehensive coverage for every player.
-          </p>
           <div className="flex justify-center">
             <div className="bg-white p-6 rounded-lg shadow-md inline-block">
               <Image

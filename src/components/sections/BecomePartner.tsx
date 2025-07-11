@@ -39,7 +39,7 @@ export default function BecomePartner() {
         <div className="max-w-5xl mx-auto text-center">
           <Building2 className="h-12 w-12 mx-auto text-primary mb-6" />
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            Ready to Make a Difference?
+            Become a Partner
           </h2>
           <p className="text-lg text-muted-foreground mb-8 font-body">
             We offer a range of partnership packages to suit your organization's goals. Let's discuss how we can work together.
@@ -64,7 +64,7 @@ export default function BecomePartner() {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">
                   <DropdownMenuItem asChild>
-                      <Link href="/photos/Athletes Medical Fund.pdf" target="_blank" download>
+                      <Link href="/TermsConditions.pdf" target="_blank" download>
                           <Download className="mr-2 h-4 w-4" />
                           <span>Download Proposal</span>
                       </Link>

@@ -30,7 +30,7 @@ export default function Hero() {
             A safety Net for Uganda's <span className="text-accent">Rugby Athletes</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-200 mb-8 font-body">
-          Every tackle, every scrum, every match puts our players at risk. Your support provides critical insurance, ensuring they are protected on and off the field.
+           Every tackle, every scrum, every match carries risk. Your support helps provide vital insurance protecting our players both on and off the field.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground transform transition-all hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]">

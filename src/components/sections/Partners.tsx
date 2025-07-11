@@ -16,11 +16,11 @@ const partnersList = [
   { name: 'Heathens', src: '/photos/heathens.jpg', hint: 'heathens logo' },
   { name: 'Buffaloes', src: '/photos/buffaloes.jpg', hint: 'buffaloes logo' },
   { name: 'Eagles', src: '/photos/EAGLES.jpeg', hint: 'eagles logo' },
-  { name: 'Hippos', src: '/photos/hippos.jpg', hint: 'hospital logo' },
-  { name: 'AAR Healthcare', src: '/photos/kyambogo.jpg', hint: 'clinic logo' },
-  { name: 'IMG', src: '/photos/kobs.jpg', hint: 'medical group' },
-  { name: 'Prudential', src: '/photos/impis.jpg', hint: 'insurance logo' },
-  { name: 'Minet', src: '/photos/rhinos.jpg', hint: 'insurance broker logo' },
+  { name: 'Hippos', src: '/photos/hippos.jpg', hint: 'Hippos logo' },
+  { name: 'Kyambogo', src: '/photos/kyambogo.jpg', hint: 'Kyambogo logo' },
+  { name: 'Ewes RFC', src: '/photos/ewes.jpg', hint: 'medical group' },
+  { name: 'Impis', src: '/photos/impis.jpg', hint: 'Impis logo' },
+  { name: 'Rhinos', src: '/photos/rhinos.jpg', hint: 'insurance broker logo' },
   { name: 'Thunderbirds', src: '/photos/thundersbirds.jpg', hint: 'insurance logo' },
   { name: 'Tooro Lions', src: '/photos/toorolions.jpg', hint: 'hospital logo' },
   { name: 'Mongers', src: '/photos/mongers.jpg', hint: 'hospital logo' },
@@ -44,7 +44,7 @@ const partnersList = [
   { name: 'Panthers', src: '/photos/panthers.jpg', hint: 'Panthers logo' },
   { name: 'Rugby Kitchen', src: '/photos/rugbyinkitchen.png', hint: 'Rugby In Kitchen logo' },
   { name: 'SheWolves', src: '/photos/shewolves.jpg', hint: 'She Wolves logo' },
-  { name: 'Rugby union', src: '/photos/uru.jpeg', hint: 'URU logo' },
+  { name: 'Tororo Crest', src: '/photos/tororocrest.jpg', hint: 'Tororo Crest logo' },
   { name: 'Walukuba', src: '/photos/walukuba.jpg', hint: 'walukuba logo' },
   { name: 'Warriors', src: '/photos/warriors.jpg', hint: 'warriors logo' },
   { name: 'Buddo', src: '/photos/buddo.jpg', hint: 'Kings College Buddo logo' },
@@ -71,7 +71,7 @@ export default function Partners() {
       <div className="container mx-auto px-6">
         <AnimateOnScroll className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 font-heading">
-            Our Proud Partners
+            Our Affiliates
           </h2>
         </AnimateOnScroll>
         
