@@ -1,3 +1,4 @@
+
 'use client';
 
 import * as React from 'react';
@@ -33,7 +34,7 @@ const previewProviders = serviceProvidersList.slice(0, 6);
 
 export default function ServiceProviders() {
   return (
-    <section id="service-providers" className="py-20 bg-card">
+    <section id="service-providers" className="pt-20 pb-1 bg-card">
       <div className="container mx-auto px-6">
         <AnimateOnScroll>
           <div className="flex justify-between items-center mb-12">
