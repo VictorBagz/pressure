@@ -1,15 +1,29 @@
 
+'use client';
+
+import * as React from 'react';
 import Image from 'next/image';
 import AnimateOnScroll from '../AnimateOnScroll';
 import { HeartHandshake } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
+
 
 const sponsorsList = [
   { name: 'Case Hospital', src: '/photos/caseH.jpg', hint: 'Case Hospital logo' },
   { name: 'Norvik Hospital', src: '/photos/norvik.jpeg', hint: 'Norvik Hospital logo' },
   { name: 'Marie Stopes', src: '/photos/marie.jpeg', hint: 'Marie Stopes logo' },
+  { name: 'Minet', src: '/photos/minet.jpeg', hint: 'Minet logo' },
+  { name: 'Bethany', src: '/photos/bethany.jpeg', hint: 'Bethany logo' },
+  { name: 'Lifelink', src: '/photos/lifelink.jpg', hint: 'Lifelink logo' },
 ];
 
 export default function Sponsors() {
+  const [emblaRef] = useEmblaCarousel({ loop: true, align: 'start' }, [
+    Autoplay({ delay: 3000, stopOnInteraction: false }),
+  ]);
+
   return (
     <section id="sponsors" className="py-20 bg-secondary">
       <div className="container mx-auto px-6">
@@ -24,13 +38,14 @@ export default function Sponsors() {
         </AnimateOnScroll>
         
         <AnimateOnScroll 
-            initialClass="opacity-0 scale-95"
-            finalClass="opacity-100 scale-100"
-            className="transition-all duration-500"
+            initialClass="opacity-0"
+            finalClass="opacity-100"
+            className="transition-opacity duration-1000"
         >
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {sponsorsList.map((sponsor, index) => (
-              <div key={index} className="p-4">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {sponsorsList.map((sponsor, index) => (
+                <div key={index} className="flex-shrink-0 flex-grow-0 basis-1/2 md:basis-1/3 lg:basis-1/4 p-4">
                   <div className="bg-card p-8 rounded-xl shadow-lg flex items-center justify-center h-40 transition duration-300 hover:shadow-2xl hover:-translate-y-2">
                      <Image
                       src={sponsor.src}
@@ -41,8 +56,9 @@ export default function Sponsors() {
                       data-ai-hint={sponsor.hint}
                     />
                   </div>
-              </div>
-            ))}
+                </div>
+              ))}
+            </div>
           </div>
         </AnimateOnScroll>
       </div>
