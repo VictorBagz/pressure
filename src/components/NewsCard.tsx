@@ -1,53 +1,62 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import type { NewsArticle } from '@/lib/newsData';
+import { ArrowRight } from 'lucide-react';
 
 interface NewsCardProps {
-  article: NewsArticle;
+  article: {
+    slug: string;
+    title: string;
+    category: string;
+    imageUrl: string;
+    excerpt: string;
+    date: string; // Assuming date is a string in 'YYYY-MM-DD' format
+  };
 }
 
 export default function NewsCard({ article }: NewsCardProps) {
-  if (!article || !article.slug) {
-    return null; 
-  }
+  const formattedDate = new Date(article.date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
   return (
-    <Link href={`/news/${article.slug}`} className="group block h-full">
-      <Card className="flex flex-col md:flex-row h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <div className="md:w-1/3 w-full h-48 md:h-auto relative">
+    <Card className="flex flex-col md:flex-row overflow-hidden h-full group transition-all duration-300 hover:shadow-xl hover:border-primary/30">
+      <div className="md:w-1/3 w-full h-48 md:h-auto relative overflow-hidden">
+        <Link href={`/news/${article.slug}`}>
           <Image
-            src={article.image}
+            src={article.imageUrl || 'https://placehold.co/600x400.png'}
             alt={article.title}
             fill
-            style={{ objectFit: 'cover' }}
-            className="transition-transform duration-300 group-hover:scale-105"
-            data-ai-hint="news article image"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            data-ai-hint="news article"
           />
-        </div>
-        <CardContent className="p-6 flex flex-col justify-between md:w-2/3">
-          <div>
-            <div className="flex items-center justify-between mb-2">
-                <Badge variant="secondary">{article.category}</Badge>
-                <p className="text-xs text-muted-foreground font-body">
-                    {new Date(article.date).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                    })}
-                </p>
-            </div>
-            <h3 className="text-lg font-bold text-primary group-hover:text-accent transition-colors mb-2 leading-snug">
-              {article.title}
-            </h3>
-            <p className="text-muted-foreground text-sm font-body line-clamp-3">
-              {article.excerpt}
-            </p>
+        </Link>
+      </div>
+      <div className="md:w-2/3 p-6 flex flex-col">
+        <CardHeader className="p-0 mb-4">
+          <div className="flex justify-between items-center mb-2">
+            <Badge variant="secondary">{article.category}</Badge>
+            <p className="text-xs text-muted-foreground">{formattedDate}</p>
           </div>
+          <CardTitle className="text-xl font-bold text-primary">
+            <Link href={`/news/${article.slug}`} className="hover:text-accent transition-colors">
+              {article.title}
+            </Link>
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="p-0 flex-grow">
+          <p className="text-muted-foreground font-body leading-relaxed">{article.excerpt}</p>
         </CardContent>
-      </Card>
-    </Link>
+        <div className="mt-6">
+          <Link href={`/news/${article.slug}`} className="font-semibold text-primary inline-flex items-center group-hover:text-accent transition-colors">
+            Read More <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
+        </div>
+      </div>
+    </Card>
   );
 }
