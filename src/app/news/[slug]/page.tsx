@@ -4,9 +4,11 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { newsData } from '@/lib/newsData';
 import { Badge } from '@/components/ui/badge';
 import { Calendar } from 'lucide-react';
+import { firestore } from '@/lib/firebase';
+import type { NewsItem } from '@/lib/newsData';
+import { format } from 'date-fns';
 
 interface ArticlePageProps {
   params: {
@@ -14,14 +16,32 @@ interface ArticlePageProps {
   };
 }
 
-// Function to find the article by slug
-const getArticle = (slug: string) => {
-  return newsData.find((item) => item.slug === slug);
-};
+async function getArticle(slug: string): Promise<NewsItem | null> {
+  const snapshot = await firestore.collection('news').where('slug', '==', slug).limit(1).get();
+
+  if (snapshot.empty) {
+    return null;
+  }
+
+  const doc = snapshot.docs[0];
+  const data = doc.data();
+  
+  return {
+    slug: data.slug,
+    title: data.title,
+    excerpt: data.excerpt,
+    image: data.imageUrl,
+    aiHint: data.aiHint,
+    category: data.category,
+    date: format(data.createdAt.toDate(), 'PPP'),
+    content: data.content,
+    link: `/news/${data.slug}`,
+  };
+}
 
 // Generate dynamic metadata for each article
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
-  const article = getArticle(params.slug);
+  const article = await getArticle(params.slug);
 
   if (!article) {
     return {
@@ -35,8 +55,8 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   };
 }
 
-export default function ArticlePage({ params }: ArticlePageProps) {
-  const article = getArticle(params.slug);
+export default async function ArticlePage({ params }: ArticlePageProps) {
+  const article = await getArticle(params.slug);
 
   if (!article) {
     notFound();
@@ -72,7 +92,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
               />
             </div>
 
-            <div className="prose prose-lg max-w-none font-body text-foreground/90 leading-relaxed">
+            <div className="prose prose-lg max-w-none font-body text-foreground/90 leading-relaxed whitespace-pre-wrap">
               <p>{article.content}</p>
             </div>
           </article>

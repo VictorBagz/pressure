@@ -3,11 +3,37 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import AnimateOnScroll from '@/components/AnimateOnScroll';
 import Link from 'next/link';
-import { newsData } from '@/lib/newsData';
 import NewsCard from '@/components/NewsCard';
+import { firestore } from '@/lib/firebase';
+import { unstable_noStore as noStore } from 'next/cache';
+import type { NewsItem } from '@/lib/newsData';
+import { format } from 'date-fns';
 
-export default function News() {
-  const displayedArticles = newsData.slice(0, 2);
+async function getNews(limit: number = 2): Promise<NewsItem[]> {
+  noStore();
+  const snapshot = await firestore.collection('news').orderBy('createdAt', 'desc').limit(limit).get();
+  if (snapshot.empty) {
+    return [];
+  }
+  return snapshot.docs.map(doc => {
+    const data = doc.data();
+    return {
+      slug: data.slug,
+      title: data.title,
+      excerpt: data.excerpt,
+      image: data.imageUrl,
+      aiHint: data.aiHint,
+      category: data.category,
+      date: format(data.createdAt.toDate(), 'PPP'),
+      content: data.content,
+      link: `/news/${data.slug}`,
+    };
+  });
+}
+
+export default async function News() {
+  const displayedArticles = await getNews(2);
+  const newsData = await getNews(10); // Check if there are more than 2 articles
 
   return (
     <section id="news" className="py-20 bg-secondary">

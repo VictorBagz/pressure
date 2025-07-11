@@ -1,5 +1,21 @@
 
-export const newsData = [
+export type NewsItem = {
+    image: string;
+    aiHint: string;
+    category: string;
+    title: string;
+    excerpt: string;
+    date: string;
+    link: string;
+    slug: string;
+    content: string;
+};
+
+// This file is now primarily for defining the type.
+// The actual data is fetched from Firestore.
+// You can remove the static data array if you wish, or keep it for reference.
+
+export const newsData: NewsItem[] = [
   {
     image: '/photos/action2.jpeg',
     aiHint: 'rugby team huddle',
@@ -45,5 +61,3 @@ export const newsData = [
     content: `The annual RugbyCare Fundraising Gala was a resounding success, raising over UGX 200 million to support the Athletes Medical Fund. The event, attended by players, partners, and philanthropists, celebrated the foundation's achievements and outlined its vision for the future. A highlight of the evening was a moving speech by a young player whose career was saved by the fund after a severe injury. "Your generosity doesn't just fund insurance," he said, "it funds dreams." The proceeds will ensure hundreds of players are covered for the upcoming season.`
   },
 ];
-
-export type NewsItem = typeof newsData[0];
