@@ -10,7 +10,7 @@ const storyPoints = [
 
 export default function Story() {
     return (
-        <section id="story" className="py-20 bg-card my-1">
+        <section id="story" className="py-20 bg-card">
             <div className="container mx-auto px-6">
                 <h2 className="text-3xl font-bold text-center text-primary mb-16">Our story</h2>
                 

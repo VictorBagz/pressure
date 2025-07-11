@@ -33,7 +33,7 @@ const previewProviders = serviceProvidersList.slice(0, 6);
 
 export default function ServiceProviders() {
   return (
-    <section id="service-providers" className="py-20 bg-card my-1">
+    <section id="service-providers" className="py-20 bg-card">
       <div className="container mx-auto px-6">
         <AnimateOnScroll>
           <div className="flex justify-between items-center mb-12">

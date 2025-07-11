@@ -23,7 +23,7 @@ const benefits = [
 
 export default function DonateSection() {
     return (
-        <section id="donate-section" className="py-20 bg-accent my-1">
+        <section id="donate-section" className="py-20 bg-accent">
             <div className="container mx-auto px-6">
                 <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
                     

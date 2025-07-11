@@ -9,7 +9,7 @@ const impactData = [
 
 export default function Impact() {
   return (
-    <section id="impact" className="py-20 bg-secondary my-1">
+    <section id="impact" className="py-20 bg-secondary">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {impactData.map((item, index) => (
