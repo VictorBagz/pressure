@@ -87,8 +87,8 @@ export default function News() {
     <section id="news" className="py-20 bg-secondary">
       <div className="container mx-auto px-6">
         <AnimateOnScroll initialClass="opacity-0 -translate-y-8" finalClass="opacity-100 translate-y-0">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-4">
-            Latest News & Updates
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12 font-heading">
+                Latest News & Updates
             </h2>
         </AnimateOnScroll>
 

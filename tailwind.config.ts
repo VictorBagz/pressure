@@ -12,6 +12,7 @@ export default {
       fontFamily: {
         body: ['"League Spartan"', 'sans-serif'],
         headline: ['"Roboto"', 'sans-serif'],
+        heading: ['"Poppins"', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {

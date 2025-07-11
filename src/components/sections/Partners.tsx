@@ -33,7 +33,7 @@ export default function Partners() {
     <section id="partners" className="py-20 bg-secondary">
       <div className="container mx-auto px-6">
         <AnimateOnScroll className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 font-heading">
             Our Proud Partners
           </h2>
         </AnimateOnScroll>
