@@ -1,3 +1,4 @@
+
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/sections/Hero';
@@ -10,6 +11,7 @@ import Video from '@/components/sections/Video';
 import BecomePartner from '@/components/sections/BecomePartner';
 import News from '@/components/sections/News';
 import Solutions from '@/components/sections/Solutions';
+import ServiceProviders from '@/components/sections/ServiceProviders';
 
 export default function Home() {
   return (
@@ -25,6 +27,7 @@ export default function Home() {
         <DonateSection />
         <BecomePartner />
         <News />
+        <ServiceProviders />
         <Partners />
       </main>
       <Footer />
