@@ -1,13 +1,10 @@
+
 'use client';
 
 import * as React from 'react';
 import Image from 'next/image';
 import AnimateOnScroll from '../AnimateOnScroll';
 import { HeartHandshake } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
-
 
 const sponsorsList = [
   { name: 'Case Hospital', src: '/photos/caseH.jpg', hint: 'Case Hospital logo' },
@@ -18,10 +15,10 @@ const sponsorsList = [
   { name: 'Lifelink', src: '/photos/lifelink.jpg', hint: 'Lifelink logo' },
 ];
 
+const topSponsors = sponsorsList.slice(0, 2);
+const prominentSponsor = sponsorsList[2];
+
 export default function Sponsors() {
-  const [emblaRef] = useEmblaCarousel({ loop: true, align: 'start' }, [
-    Autoplay({ delay: 3000, stopOnInteraction: false }),
-  ]);
 
   return (
     <section id="sponsors" className="pt-2.5 pb-16 bg-card">
@@ -41,23 +38,38 @@ export default function Sponsors() {
             finalClass="opacity-100"
             className="transition-opacity duration-1000"
         >
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex">
-              {sponsorsList.map((sponsor, index) => (
-                <div key={index} className="flex-shrink-0 flex-grow-0 basis-1/2 md:basis-1/3 lg:basis-1/4 p-4">
-                  <div className="bg-white p-8 rounded-xl shadow-lg flex items-center justify-center h-40 transition duration-300 hover:shadow-2xl hover:-translate-y-2">
-                     <Image
-                      src={sponsor.src}
-                      alt={`${sponsor.name} logo`}
-                      width={150}
-                      height={75}
-                      className="h-24 w-auto object-contain opacity-90"
-                      data-ai-hint={sponsor.hint}
-                    />
-                  </div>
+          <div className="max-w-4xl mx-auto">
+            {/* Top Row with 2 sponsors */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              {topSponsors.map((sponsor, index) => (
+                <div key={index} className="bg-white p-8 rounded-xl shadow-lg flex items-center justify-center h-48 transition duration-300 hover:shadow-2xl hover:-translate-y-2">
+                   <Image
+                    src={sponsor.src}
+                    alt={`${sponsor.name} logo`}
+                    width={180}
+                    height={90}
+                    className="h-28 w-auto object-contain opacity-90"
+                    data-ai-hint={sponsor.hint}
+                  />
                 </div>
               ))}
             </div>
+
+            {/* Prominent Sponsor */}
+            {prominentSponsor && (
+              <div className="mt-8 flex justify-center">
+                <div className="w-full md:w-2/3 bg-white p-10 rounded-xl shadow-xl flex items-center justify-center h-56 transition duration-300 hover:shadow-2xl hover:-translate-y-2">
+                   <Image
+                    src={prominentSponsor.src}
+                    alt={`${prominentSponsor.name} logo`}
+                    width={220}
+                    height={110}
+                    className="h-32 w-auto object-contain opacity-90"
+                    data-ai-hint={prominentSponsor.hint}
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </AnimateOnScroll>
       </div>
