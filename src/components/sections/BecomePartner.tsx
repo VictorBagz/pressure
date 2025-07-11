@@ -45,12 +45,12 @@ export default function BecomePartner() {
             We offer a range of partnership packages to suit your organization's goals. Let's discuss how we can work together.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {partnershipBenefits.map((benefit) => (
-              <div key={benefit.title} className="bg-secondary/60 rounded-xl p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                <benefit.icon className="h-10 w-10 text-primary mx-auto mb-5" />
-                <h3 className="text-lg font-semibold text-primary mb-3">{benefit.title}</h3>
-                <p className="text-muted-foreground font-body text-sm leading-relaxed">{benefit.description}</p>
+              <div key={benefit.title} className="bg-secondary/60 rounded-xl p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                <benefit.icon className="h-8 w-8 text-primary mx-auto mb-4" />
+                <h3 className="text-md font-semibold text-primary mb-2">{benefit.title}</h3>
+                <p className="text-muted-foreground font-body text-xs leading-relaxed">{benefit.description}</p>
               </div>
             ))}
           </div>
