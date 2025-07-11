@@ -3,63 +3,50 @@ import type { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import NewsCard from '@/components/NewsCard';
+import { getNewsArticles } from '@/lib/news';
 import { Newspaper } from 'lucide-react';
-import { firestore } from '@/lib/firebase';
-import { unstable_noStore as noStore } from 'next/cache';
-import type { NewsItem } from '@/lib/newsData';
-import { format } from 'date-fns';
+import AnimateOnScroll from '@/components/AnimateOnScroll';
 
 export const metadata: Metadata = {
-  title: "News & Updates | RugbyCare UG",
-  description: "Stay up to date with the latest news, events, and stories from the Kayondo Ronnie Jr Foundation and the Athletes Medical Fund.",
+  title: 'News & Updates | RugbyCare UG',
+  description: 'The latest stories, announcements, and updates from the Kayondo Ronnie Jr Foundation and the Athletes Medical Fund.',
 };
 
-async function getNews(): Promise<NewsItem[]> {
-  noStore();
-  const snapshot = await firestore.collection('news').orderBy('createdAt', 'desc').get();
-  if (snapshot.empty) {
-    return [];
-  }
-  return snapshot.docs.map(doc => {
-    const data = doc.data();
-    return {
-      slug: data.slug,
-      title: data.title,
-      excerpt: data.excerpt,
-      image: data.imageUrl,
-      aiHint: data.aiHint,
-      category: data.category,
-      date: format(data.createdAt.toDate(), 'PPP'), // 'PPP' -> Jun 30, 2025
-      content: data.content,
-      link: `/news/${data.slug}`,
-    };
-  });
-}
-
-
 export default async function NewsPage() {
-  const newsData = await getNews();
+  const articles = await getNewsArticles();
 
   return (
-    <div className="flex flex-col min-h-screen bg-secondary">
+    <div className="flex flex-col min-h-screen bg-background">
       <Header />
-      <main className="flex-grow py-16 sm:py-20">
+      <main className="flex-grow py-16 md:py-24">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <Newspaper className="mx-auto h-12 w-12 text-primary mb-4" />
-            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-2 font-heading">
+          <AnimateOnScroll className="max-w-2xl mx-auto text-center mb-16">
+            <Newspaper className="h-12 w-12 mx-auto text-primary mb-4" />
+            <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               News & Updates
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground font-body">
               The latest stories, announcements, and updates from our foundation.
             </p>
-          </div>
+          </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
-            {newsData.map((item) => (
-              <NewsCard key={item.slug} item={item} layout="horizontal" />
-            ))}
-          </div>
+          <AnimateOnScroll
+            initialClass="opacity-0 translate-y-8"
+            finalClass="opacity-100 translate-y-0"
+            className="transition-all duration-700 delay-200"
+          >
+            <div className="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
+              {articles.length > 0 ? (
+                articles.map((article) => (
+                  <NewsCard key={article.id} article={article} />
+                ))
+              ) : (
+                <div className="text-center col-span-full py-16">
+                    <p className="text-muted-foreground">No news articles found. Please check back later or add some in the admin dashboard.</p>
+                </div>
+              )}
+            </div>
+          </AnimateOnScroll>
         </div>
       </main>
       <Footer />

@@ -1,73 +1,50 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import type { NewsItem } from '@/lib/newsData';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import type { NewsArticle } from '@/lib/newsData';
 
 interface NewsCardProps {
-  item: NewsItem;
-  layout?: 'vertical' | 'horizontal';
+  article: NewsArticle;
 }
 
-export default function NewsCard({ item, layout = 'vertical' }: NewsCardProps) {
-  if (layout === 'horizontal') {
-    return (
-      <Link href={item.link} className="group block">
-        <Card className="overflow-hidden rounded-xl shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-1 flex flex-row">
-          <div className="relative aspect-square w-1/3 md:w-1/4 flex-shrink-0">
-            <Image
-              src={item.image}
-              alt={item.title}
-              fill
-              style={{ objectFit: 'cover' }}
-              data-ai-hint={item.aiHint}
-              className="transition-transform duration-300 group-hover:scale-105"
-            />
-          </div>
-          <CardContent className="p-6 flex-grow flex flex-col justify-between w-full">
-            <div>
-              <div className="flex items-center gap-4 mb-3">
-                <Badge>{item.category}</Badge>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <Calendar className="h-4 w-4" />
-                  <span>{item.date}</span>
-                </div>
-              </div>
-              <h3 className="text-lg font-bold text-primary mb-2 group-hover:text-accent transition-colors leading-tight">{item.title}</h3>
-              <p className="text-muted-foreground font-body text-sm">{item.excerpt}</p>
-            </div>
-          </CardContent>
-        </Card>
-      </Link>
-    );
+export default function NewsCard({ article }: NewsCardProps) {
+  if (!article || !article.slug) {
+    return null; 
   }
 
-  // Default vertical layout
   return (
-    <Link href={item.link} className="group block h-full">
-      <Card className="flex flex-col h-full overflow-hidden rounded-xl shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-1">
-        <div className="relative aspect-video">
+    <Link href={`/news/${article.slug}`} className="group block h-full">
+      <Card className="flex flex-col md:flex-row h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div className="md:w-1/3 w-full h-48 md:h-auto relative">
           <Image
-            src={item.image}
-            alt={item.title}
+            src={article.image}
+            alt={article.title}
             fill
             style={{ objectFit: 'cover' }}
-            data-ai-hint={item.aiHint}
             className="transition-transform duration-300 group-hover:scale-105"
+            data-ai-hint="news article image"
           />
-          <Badge className="absolute top-3 right-3">{item.category}</Badge>
         </div>
-        <CardContent className="p-6 flex-grow flex flex-col justify-between">
+        <CardContent className="p-6 flex flex-col justify-between md:w-2/3">
           <div>
-            <h3 className="text-lg font-bold text-primary mb-2 group-hover:text-accent transition-colors leading-tight">{item.title}</h3>
-            <p className="text-muted-foreground font-body mb-4 text-sm">{item.excerpt}</p>
-          </div>
-          <div className="flex items-center gap-2 text-xs text-muted-foreground pt-3 border-t">
-            <Calendar className="h-4 w-4" />
-            <span>{item.date}</span>
+            <div className="flex items-center justify-between mb-2">
+                <Badge variant="secondary">{article.category}</Badge>
+                <p className="text-xs text-muted-foreground font-body">
+                    {new Date(article.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                    })}
+                </p>
+            </div>
+            <h3 className="text-lg font-bold text-primary group-hover:text-accent transition-colors mb-2 leading-snug">
+              {article.title}
+            </h3>
+            <p className="text-muted-foreground text-sm font-body line-clamp-3">
+              {article.excerpt}
+            </p>
           </div>
         </CardContent>
       </Card>

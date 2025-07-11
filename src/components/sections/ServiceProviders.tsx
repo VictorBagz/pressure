@@ -13,12 +13,24 @@ import {
 import AnimateOnScroll from '../AnimateOnScroll';
 
 const serviceProvidersList = [
-  { name: 'AAR Healthcare', src: '/photos/kyambogo.jpg', hint: 'clinic logo' },
-  { name: 'IMG', src: '/photos/kobs.jpg', hint: 'medical group' },
-  { name: 'Prudential', src: '/photos/impis.jpg', hint: 'insurance logo' },
-  { name: 'Minet', src: '/photos/rhinos.jpg', hint: 'insurance broker logo' },
-  { name: 'Rugby In Kitchen', src: '/photos/rugbyinkitchen.png', hint: 'Rugby In Kitchen logo' },
-  { name: 'Uganda Rugby Union', src: '/photos/uru.jpeg', hint: 'URU logo' },
+  { name: 'Bethany', src: '/photos/bethany.jpeg', hint: 'Bethany logo' },
+  { name: 'Case Hospital', src: '/photos/caseH.jpg', hint: 'Case Hospital' },
+  { name: 'Doctors Hospital', src: '/photos/doctorsH.png', hint: 'Doctors Hospital logo' },
+  { name: 'Kampala Hospital', src: '/photos/kampalaH.png', hint: 'Kampala Hospital logo' },
+  { name: 'Kisubi Hospital', src: '/photos/kisubiH.jpg', hint: 'Kisubi Hospital logo' },
+  { name: 'Lifelink', src: '/photos/lifelink.jpg', hint: 'Lifelink logo' },
+  { name: 'Marie Stopes', src: '/photos/marie.jpeg', hint: 'Marie Stopes logo' },
+  { name: 'Medipal Medical center', src: '/photos/medipal.jpeg', hint: 'Medipal Medical center logo' },
+  { name: 'Mengo Hospital', src: '/photos/mengo.jpeg', hint: 'Mengo Hospital logo' },
+  { name: 'Mildmay', src: '/photos/mildmay.jpg', hint: 'Mildmay logo' },
+  { name: 'Norvik Hospital', src: '/photos/norvik.jpeg', hint: 'Norvik Hospital logo' },
+  { name: 'Ruby Hospital', src: '/photos/ruby.jpeg', hint: 'Ruby Hospital logo' },
+  { name: 'Sameday Hospital', src: '/photos/samedayH.png', hint: 'Sameday Hospital logo' },
+  { name: 'Savannah Hospital', src: '/photos/savannah.png', hint: 'Savannah Hospital logo' },
+  { name: 'Sebbi Hospital', src: '/photos/sebbi.jpeg', hint: 'Sebbi Hospital logo' },
+  { name: 'Mulago Hospital', src: '/photos/ugandaCTA.png', hint: 'Mulago Hospital logo' },
+  { name: 'UMC Hospital', src: '/photos/umc.jpeg', hint: 'Umc logo' },
+  { name: 'Lifelink', src: '/photos/lifelink.jpg', hint: 'Lifelink logo' },
 ];
 
 export default function ServiceProviders() {

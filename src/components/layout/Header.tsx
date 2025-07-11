@@ -15,7 +15,6 @@ const navLinks = [
   { href: '/#story-impact', label: 'Impact' },
   { href: '/#story', label: 'Our Story' },
   { href: '/#players', label: 'Players' },
-  { href: '/news', label: 'News'},
   { href: '/#donate-section', label: 'Donate' },
 ];
 

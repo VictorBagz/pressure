@@ -21,7 +21,7 @@ export default function Footer() {
                         </Link>
                         <p className="text-primary-foreground/80 mb-4 font-body">Providing comprehensive medical insurance coverage for rugby players across Uganda since 2025.</p>
                         <div className="flex space-x-4">
-                            <a href="#" className="text-primary-foreground/80 hover:text-accent transition"><Twitter /></a>
+                            <a href="https://x.com/jr_kayondo?t=7pUAd7zeXuNdfNI5uLsm5A&s=09" className="text-primary-foreground/80 hover:text-accent transition"><Twitter /></a>
                         </div>
                     </div>
                     
