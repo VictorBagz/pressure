@@ -27,9 +27,9 @@ export default function NewsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
             {newsData.map((item) => (
-              <NewsCard key={item.slug} item={item} />
+              <NewsCard key={item.slug} item={item} layout="horizontal" />
             ))}
           </div>
         </div>

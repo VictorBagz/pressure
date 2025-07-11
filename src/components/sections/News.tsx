@@ -20,7 +20,7 @@ export default function News() {
 
         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6">
           {displayedArticles.map((item, index) => (
-            <NewsCard key={index} item={item} />
+            <NewsCard key={index} item={item} layout="vertical" />
           ))}
         </div>
 
