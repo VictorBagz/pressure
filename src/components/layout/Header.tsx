@@ -1,23 +1,39 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { logout } from '@/app/admin/actions';
 
 const navLinks = [
-  { href: '#home', label: 'Home' },
-  { href: '#story-impact', label: 'Impact' },
-  { href: '#story', label: 'Our Story' },
-  { href: '#players', label: 'Players' },
-  { href: '#donate-section', label: 'Donate' },
+  { href: '/#home', label: 'Home' },
+  { href: '/#story-impact', label: 'Impact' },
+  { href: '/#story', label: 'Our Story' },
+  { href: '/#players', label: 'Players' },
+  { href: '/news', label: 'News'},
+  { href: '/#donate-section', label: 'Donate' },
 ];
+
+function LogoutButton() {
+    return (
+        <form action={logout}>
+            <Button type="submit" variant="ghost" size="icon" aria-label="Logout">
+                <LogOut className="h-5 w-5" />
+            </Button>
+        </form>
+    )
+}
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const isAdmin = pathname.startsWith('/admin');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,9 +44,16 @@ export default function Header() {
   }, []);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('#')) {
+    if (href.startsWith('/#')) {
       e.preventDefault();
-      const targetId = href.substring(1);
+      const targetId = href.substring(2);
+      
+      // If we are not on the homepage, navigate to it first
+      if (pathname !== '/') {
+        window.location.href = `/${href}`;
+        return;
+      }
+      
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         const offsetTop = targetElement.offsetTop;
@@ -42,6 +65,33 @@ export default function Header() {
     }
     setIsMenuOpen(false);
   };
+
+  if (isAdmin) {
+    return (
+       <header className={cn(
+        'sticky top-0 z-50 transition-shadow duration-300 bg-white text-primary shadow-lg'
+      )}>
+        <div className="container mx-auto pl-[5px] pr-1 py-3">
+          <div className="flex items-center justify-between">
+            <Link href="/admin">
+              <Image
+                src="/photos/medicalfund.jpeg"
+                alt="RugbyCare UG Logo"
+                width={180}
+                height={40}
+                priority
+                data-ai-hint="logo"
+              />
+            </Link>
+            <div className="flex items-center gap-4">
+              <span className="font-bold text-lg">Admin Dashboard</span>
+              <LogoutButton />
+            </div>
+          </div>
+        </div>
+      </header>
+    )
+  }
 
   return (
     <header className={cn(
