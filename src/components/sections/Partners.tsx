@@ -11,6 +11,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import AnimateOnScroll from '../AnimateOnScroll';
+import Autoplay from 'embla-carousel-autoplay';
 
 const partnersList = [
   { name: 'Heathens', src: '/photos/heathens.jpg', hint: 'heathens logo' },
@@ -85,7 +86,14 @@ export default function Partners() {
                 align: 'start',
                 loop: true,
               }}
-              className="w-full max-w-6xl mx-auto relative pb-16" // Added relative and padding-bottom
+              plugins={[
+                Autoplay({
+                  delay: 2000,
+                  stopOnInteraction: false,
+                  stopOnMouseEnter: true,
+                }),
+              ]}
+              className="w-full max-w-6xl mx-auto relative pb-16"
             >
               <CarouselContent className="-ml-4">
                 {partnersList.map((partner, index) => (
@@ -106,8 +114,8 @@ export default function Partners() {
                 ))}
               </CarouselContent>
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center justify-center gap-4">
-                  <CarouselPrevious className="relative -left-2 transform-none static animate-float bg-card/80 backdrop-blur-sm text-primary hover:bg-card hover:text-accent border-primary/20 shadow-lg" />
-                  <CarouselNext className="relative -right-2 transform-none static animate-float bg-card/80 backdrop-blur-sm text-primary hover:bg-card hover:text-accent border-primary/20 shadow-lg" />
+                  <CarouselPrevious className="relative -left-2 transform-none static bg-card/80 backdrop-blur-sm text-primary hover:bg-card hover:text-accent border-primary/20 shadow-lg" />
+                  <CarouselNext className="relative -right-2 transform-none static bg-card/80 backdrop-blur-sm text-primary hover:bg-card hover:text-accent border-primary/20 shadow-lg" />
               </div>
             </Carousel>
         </AnimateOnScroll>
