@@ -68,7 +68,7 @@ const partnersList = [
 
 export default function Partners() {
   return (
-    <section id="partners" className="pt-0.5 pb-1 bg-secondary">
+    <section id="partners" className="py-2 bg-secondary">
       <div className="container mx-auto px-6">
         <AnimateOnScroll className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 font-heading">
