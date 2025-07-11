@@ -11,7 +11,6 @@ import Video from '@/components/sections/Video';
 import BecomePartner from '@/components/sections/BecomePartner';
 import Solutions from '@/components/sections/Solutions';
 import ServiceProviders from '@/components/sections/ServiceProviders';
-import News from '@/components/sections/News';
 
 export default function Home() {
   return (
@@ -24,7 +23,6 @@ export default function Home() {
         <Solutions />
         <Video />
         <Players />
-        <News />
         <DonateSection />
         <ServiceProviders />
         <BecomePartner />
