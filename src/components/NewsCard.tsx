@@ -37,7 +37,7 @@ export default function NewsCard({ item, layout = 'vertical' }: NewsCardProps) {
                 </div>
               </div>
               <h3 className="text-lg font-bold text-primary mb-2 group-hover:text-accent transition-colors leading-tight">{item.title}</h3>
-              <p className="text-muted-foreground font-body text-sm hidden md:block">{item.excerpt}</p>
+              <p className="text-muted-foreground font-body text-sm">{item.excerpt}</p>
             </div>
           </CardContent>
         </Card>
