@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/alert-dialog"
 import { deleteNewsArticle } from "../actions";
 
-export default function DeleteConfirmationPage({ params }: { params: { id: string } }) {
+export default function DeleteConfirmationPage({ params }: { params: { id:string } }) {
   const deleteAction = deleteNewsArticle.bind(null, params.id);
 
   return (
