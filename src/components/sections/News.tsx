@@ -1,4 +1,4 @@
-// This file is intentionally left blank to resolve a build error.
+// This file is intentionally left empty to resolve a persistent build error.
 export default function News() {
   return null;
 }
