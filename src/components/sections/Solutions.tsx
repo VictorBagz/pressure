@@ -17,7 +17,7 @@ const colorClasses = {
 
 export default function Solutions() {
     return (
-        <section id="solutions" className="py-20 bg-secondary">
+        <section id="solutions" className="py-20 bg-secondary my-1">
             <div className="container mx-auto px-6">
                 <h2 className="text-3xl font-bold text-center text-primary mb-4">Our Comprehensive Solutions</h2>
                 <p className="text-center text-muted-foreground max-w-3xl mx-auto mb-16 font-body">We provide more than just insurance - offering a complete support system for Uganda's rugby community.</p>

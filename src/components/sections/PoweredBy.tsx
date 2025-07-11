@@ -5,7 +5,7 @@ import { ShieldCheck } from 'lucide-react';
 
 export default function PoweredBy() {
   return (
-    <section id="powered-by" className="py-20 bg-card">
+    <section id="powered-by" className="py-20 bg-card my-1">
       <div className="container mx-auto px-6">
         <AnimateOnScroll className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 font-heading">
