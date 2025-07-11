@@ -17,14 +17,14 @@ export default function NewsCard({ item, layout = 'vertical' }: NewsCardProps) {
     return (
       <Link href={item.link} className="group block">
         <Card className="overflow-hidden rounded-xl shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-1 flex flex-col sm:flex-row">
-          <div className="relative aspect-video sm:aspect-square sm:w-1/3 md:w-1/4 flex-shrink-0">
+          <div className="relative sm:aspect-square sm:w-1/3 md:w-1/4 flex-shrink-0">
             <Image
               src={item.image}
               alt={item.title}
               fill
               style={{ objectFit: 'cover' }}
               data-ai-hint={item.aiHint}
-              className="transition-transform duration-300 group-hover:scale-105"
+              className="transition-transform duration-300 group-hover:scale-105 aspect-video sm:aspect-square"
             />
           </div>
           <CardContent className="p-6 flex-grow flex flex-col justify-between w-full">
