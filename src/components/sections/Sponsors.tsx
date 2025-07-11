@@ -7,12 +7,9 @@ import AnimateOnScroll from '../AnimateOnScroll';
 import { HeartHandshake } from 'lucide-react';
 
 const sponsorsList = [
-  { name: 'Case Hospital', src: '/photos/caseH.jpg', hint: 'Case Hospital logo' },
-  { name: 'Norvik Hospital', src: '/photos/norvik.jpeg', hint: 'Norvik Hospital logo' },
-  { name: 'Marie Stopes', src: '/photos/marie.jpeg', hint: 'Marie Stopes logo' },
-  { name: 'Minet', src: '/photos/minet.jpeg', hint: 'Minet logo' },
-  { name: 'Bethany', src: '/photos/bethany.jpeg', hint: 'Bethany logo' },
-  { name: 'Lifelink', src: '/photos/lifelink.jpg', hint: 'Lifelink logo' },
+  { name: 'Ministry of Health', src: '/photos/health.jpg', hint: 'Case Hospital logo' },
+  { name: 'Norvik Hospital', src: '/photos/NCS1.png', hint: 'Norvik Hospital logo' },
+  { name: 'Marie Stopes', src: '/photos/uru.jpeg', hint: 'Marie Stopes logo' },
 ];
 
 const topSponsors = sponsorsList.slice(0, 2);
@@ -26,11 +23,8 @@ export default function Sponsors() {
         <AnimateOnScroll className="max-w-4xl mx-auto text-center mb-12">
           <HeartHandshake className="mx-auto h-12 w-12 text-primary mb-4" />
           <h2 className="text-3xl md:text-4xl font-bold text-primary font-heading">
-            Our Proud Sponsors
+            Our Proud Partners
           </h2>
-          <p className="text-lg text-muted-foreground mt-2">
-            We are incredibly grateful for the support of our sponsors who make our mission possible.
-          </p>
         </AnimateOnScroll>
         
         <AnimateOnScroll 

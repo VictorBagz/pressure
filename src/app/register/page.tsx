@@ -203,7 +203,7 @@ export default function RegisterPage() {
                                     Accept terms and conditions
                                 </Label>
                                 <p className="text-sm text-muted-foreground">
-                                    You agree to our <Link href="/TermsConditions.pdf" download className="text-primary hover:underline">Terms of Service</Link> and <Link href="#" className="text-primary hover:underline">Privacy Policy</Link>.
+                                    You agree to our <Link href="/TermsConditions.pdf" download className="text-primary hover:underline">Terms of Service.</Link>
                                 </p>
                                 {state.errors?.terms && <p className="text-sm font-medium text-destructive">{state.errors.terms[0]}</p>}
                             </div>

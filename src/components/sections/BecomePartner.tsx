@@ -31,7 +31,7 @@ export default function BecomePartner() {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">
                   <DropdownMenuItem asChild>
-                      <Link href="/TermsConditions.pdf" target="_blank" download>
+                      <Link href="/Proposal.pdf" target="_blank" download>
                           <Download className="mr-2 h-4 w-4" />
                           <span>Download Proposal</span>
                       </Link>
