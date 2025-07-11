@@ -1,4 +1,3 @@
-
 'use client';
 
 import * as React from 'react';
@@ -25,7 +24,7 @@ export default function Sponsors() {
   ]);
 
   return (
-    <section id="sponsors" className="pt-1 pb-16 bg-secondary">
+    <section id="sponsors" className="pt-1 pb-16 bg-card">
       <div className="container mx-auto px-6">
         <AnimateOnScroll className="max-w-4xl mx-auto text-center mb-12">
           <HeartHandshake className="mx-auto h-12 w-12 text-primary mb-4" />
@@ -46,7 +45,7 @@ export default function Sponsors() {
             <div className="flex">
               {sponsorsList.map((sponsor, index) => (
                 <div key={index} className="flex-shrink-0 flex-grow-0 basis-1/2 md:basis-1/3 lg:basis-1/4 p-4">
-                  <div className="bg-card p-8 rounded-xl shadow-lg flex items-center justify-center h-40 transition duration-300 hover:shadow-2xl hover:-translate-y-2">
+                  <div className="bg-white p-8 rounded-xl shadow-lg flex items-center justify-center h-40 transition duration-300 hover:shadow-2xl hover:-translate-y-2">
                      <Image
                       src={sponsor.src}
                       alt={`${sponsor.name} logo`}
