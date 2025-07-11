@@ -67,6 +67,11 @@ export default function Header() {
   };
 
   if (isAdmin) {
+    // Return null if on the login page to have a cleaner interface
+    if (pathname.startsWith('/admin/login')) {
+      return null;
+    }
+
     return (
        <header className={cn(
         'sticky top-0 z-50 transition-shadow duration-300 bg-white text-primary shadow-lg'
