@@ -11,7 +11,7 @@ const features = [
 
 export default function Players() {
   return (
-    <section id="players" className="pt-20 pb-1 bg-secondary">
+    <section id="players" className="pt-20 pb-20 bg-secondary">
         <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
