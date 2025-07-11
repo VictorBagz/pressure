@@ -24,7 +24,7 @@ export default function Sponsors() {
   ]);
 
   return (
-    <section id="sponsors" className="pt-1 pb-16 bg-card">
+    <section id="sponsors" className="pt-2.5 pb-16 bg-card">
       <div className="container mx-auto px-6">
         <AnimateOnScroll className="max-w-4xl mx-auto text-center mb-12">
           <HeartHandshake className="mx-auto h-12 w-12 text-primary mb-4" />
