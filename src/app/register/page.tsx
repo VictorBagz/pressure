@@ -75,7 +75,7 @@ const clubs = [
     "Walukuba",
     "Walukuba Titans",
     "Warriors",
-];
+].sort();
 
 const schools = [
     "Butiki College",
@@ -103,7 +103,7 @@ const schools = [
     "St. Joseph's Layibi",
     "St. Mary's College Kisubi",
     "Vienna College",
-];
+].sort();
 
 export default function RegisterPage() {
     const { toast } = useToast();
@@ -175,7 +175,7 @@ export default function RegisterPage() {
                                                 ))}
                                             </SelectGroup>
                                             <SelectGroup>
-                                                <SelectLabel>Schools</SelectLabel>
+                                                <SelectLabel className="bg-primary text-primary-foreground -mx-1 px-2.5">Schools</SelectLabel>
                                                 {schools.map(item => (
                                                     <SelectItem key={item} value={item}>{item}</SelectItem>
                                                 ))}
