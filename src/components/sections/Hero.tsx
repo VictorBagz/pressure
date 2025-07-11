@@ -34,7 +34,7 @@ export default function Hero() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground transform transition-all hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]">
-              <Link href="/partner">
+              <Link href="/#become-partner">
                 <UserPlus className="mr-2 h-5 w-5" />
                  Become a partner
               </Link>
