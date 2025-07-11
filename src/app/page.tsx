@@ -12,6 +12,7 @@ import BecomePartner from '@/components/sections/BecomePartner';
 import Solutions from '@/components/sections/Solutions';
 import ServiceProviders from '@/components/sections/ServiceProviders';
 import PoweredBy from '@/components/sections/PoweredBy';
+import Sponsors from '@/components/sections/Sponsors';
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
         <PoweredBy />
         <BecomePartner />
         <Partners />
+        <Sponsors />
       </main>
       <Footer />
     </>
