@@ -34,7 +34,8 @@ const Digit = ({ digit, duration }: { digit: number; duration: number }) => {
 };
 
 export default function Counter({ target, duration = 1500, className, suffix = '' }: CounterProps) {
-  const [count, setCount] = useState(0);
+  // Start the count from 10% less than the target, but not below 0.
+  const [count, setCount] = useState(Math.max(0, Math.floor(target * 0.9)));
   const ref = useRef<HTMLDivElement>(null);
   const hasAnimated = useRef(false);
 
