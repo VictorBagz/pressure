@@ -16,10 +16,10 @@ export default function BecomePartner() {
         <div className="max-w-5xl mx-auto text-center">
           <Building2 className="h-12 w-12 mx-auto text-primary mb-6" />
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            Become a Partner
+            Become a Sponsor
           </h2>
           <p className="text-lg text-muted-foreground mb-8 font-body">
-            We offer a range of partnership packages to suit your organization's goals. Let's discuss how we can work together.
+            We offer a range of sponsorship packages to suit your organization's goals. Let's discuss how we can work together.
           </p>
 
           <DropdownMenu>
