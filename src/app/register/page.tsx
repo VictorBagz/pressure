@@ -180,7 +180,6 @@ export default function RegisterPage() {
                                                     <SelectItem key={item} value={item}>{item}</SelectItem>
                                                 ))}
                                             </SelectGroup>
-                                            <SelectItem value="Other">Other</SelectItem>
                                         </SelectContent>
                                     </Select>
                                 </div>
