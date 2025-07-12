@@ -43,7 +43,7 @@ const partnersList = [
   { name: 'Mbarara Titans', src: '/photos/mbararatitans.jpg', hint: 'Mbarara Titans logo' },
   { name: 'Nile Rapids', src: '/photos/nilerapids.jpg', hint: 'Nile Rapids logo' },
   { name: 'Panthers', src: '/photos/panthers.jpg', hint: 'Panthers logo' },
-  { name: 'Rugby Kitchen', src: '/photos/rugbyinkitchen.png', hint: 'Rugby In Kitchen logo' },
+  { name: 'Rugby Kitchen', src: '/photos/rugbyinkitchen.jpeg', hint: 'Rugby In Kitchen logo' },
   { name: 'SheWolves', src: '/photos/shewolves.jpg', hint: 'She Wolves logo' },
   { name: 'Tororo Crest', src: '/photos/tororocrest.jpg', hint: 'Tororo Crest logo' },
   { name: 'Walukuba', src: '/photos/walukuba.jpg', hint: 'walukuba logo' },
