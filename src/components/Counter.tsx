@@ -34,19 +34,19 @@ const Digit = ({ digit, duration }: { digit: number; duration: number }) => {
 };
 
 export default function Counter({ target, duration = 1500, className, suffix = '' }: CounterProps) {
-  // Start the count from 10% less than the target, but not below 0.
-  const [count, setCount] = useState(Math.max(0, Math.floor(target * 0.9)));
+  const initialCount = Math.max(0, Math.floor(target * 0.9));
+  const [count, setCount] = useState(initialCount);
   const ref = useRef<HTMLDivElement>(null);
-  const hasAnimated = useRef(false);
-
+  
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true;
-          // Set count to target to trigger the animation
+        if (entry.isIntersecting) {
+          // When it enters the viewport, animate to the target
           setCount(target);
-          observer.disconnect();
+        } else {
+          // When it leaves the viewport, reset to the initial count
+          setCount(initialCount);
         }
       },
       { threshold: 0.1 }
@@ -62,7 +62,7 @@ export default function Counter({ target, duration = 1500, className, suffix = '
         observer.unobserve(currentRef);
       }
     };
-  }, [target]);
+  }, [target, initialCount]);
 
   // Format the number with commas and split into characters
   const targetString = target.toLocaleString('en-US');
