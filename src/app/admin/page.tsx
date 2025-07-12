@@ -28,6 +28,8 @@ import type { Metadata } from 'next';
 import { firestore } from '@/lib/firebase';
 import { unstable_noStore as noStore } from 'next/cache';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
     title: "Admin Dashboard | RugbyCare UG",
     description: "Manage and track registered players for the Athletes Medical Fund.",

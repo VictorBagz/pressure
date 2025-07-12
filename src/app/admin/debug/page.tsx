@@ -5,6 +5,8 @@ import { AlertCircle, CheckCircle } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
+export const dynamic = 'force-dynamic';
+
 // A simple utility to mask sensitive keys for display
 const maskValue = (value: string | undefined, keepChars = 4): string => {
   if (!value) return 'Not Set';
