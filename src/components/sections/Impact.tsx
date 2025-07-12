@@ -4,7 +4,7 @@ const impactData = [
   { target: 5400, title: 'Active Rugby Players', description: '', suffix: '+' },
   { target: 75, title: 'Suffer minor and major Injuries Annually', description: '',suffix: '%' },
   { target: 99.7, title: 'Uninsured Players', description: '', suffix: '%' },
-  { target: 648, title: 'Annual Medical Budget', description: '', suffix: 'M' },
+  { target: 648, title: 'Annual Medical Budget', description: '', prefix: 'UGX ', suffix: 'M' },
 ];
 
 export default function Impact() {
@@ -15,7 +15,8 @@ export default function Impact() {
           {impactData.map((item, index) => (
             <div key={index} className="bg-card rounded-xl shadow-lg p-8 text-center transition duration-500 hover:shadow-2xl hover:-translate-y-2">
               <Counter 
-                target={item.target} 
+                target={item.target}
+                prefix={item.prefix}
                 suffix={item.suffix}
                 className="text-primary text-5xl font-bold mb-4" 
               />

@@ -7,6 +7,7 @@ interface CounterProps {
   target: number;
   duration?: number;
   className?: string;
+  prefix?: string;
   suffix?: string;
 }
 
@@ -33,7 +34,7 @@ const Digit = ({ digit, duration }: { digit: number; duration: number }) => {
   );
 };
 
-export default function Counter({ target, duration = 1500, className, suffix = '' }: CounterProps) {
+export default function Counter({ target, duration = 1500, className, prefix = '', suffix = '' }: CounterProps) {
   const initialCount = Math.max(0, Math.floor(target * 0.9));
   const [count, setCount] = useState(initialCount);
   const ref = useRef<HTMLDivElement>(null);
@@ -77,7 +78,8 @@ export default function Counter({ target, duration = 1500, className, suffix = '
   const displayChars = countString.split('');
 
   return (
-    <div ref={ref} className={cn('flex items-baseline justify-center', className)} aria-label={`${target.toLocaleString('en-US')}${suffix || ''}`}>
+    <div ref={ref} className={cn('flex items-baseline justify-center', className)} aria-label={`${prefix}${target.toLocaleString('en-US')}${suffix || ''}`}>
+      {prefix && <span>{prefix}</span>}
       <div className="flex" aria-hidden="true">
         {displayChars.map((char, index) => {
           if (char === ',' || char === '.') {
