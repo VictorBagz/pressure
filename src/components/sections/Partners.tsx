@@ -19,7 +19,6 @@ const partnersList = [
   { name: 'Eagles', src: '/photos/EAGLES.jpeg', hint: 'eagles logo' },
   { name: 'Hippos', src: '/photos/hippos.jpg', hint: 'Hippos logo' },
   { name: 'Kyambogo', src: '/photos/kyambogo.jpg', hint: 'Kyambogo logo' },
-  { name: 'Ewes RFC', src: '/photos/ewes.jpg', hint: 'medical group' },
   { name: 'Impis', src: '/photos/impis.jpg', hint: 'Impis logo' },
   { name: 'Rhinos', src: '/photos/rhinos.jpg', hint: 'insurance broker logo' },
   { name: 'Thunderbirds', src: '/photos/thundersbirds.jpg', hint: 'insurance logo' },
