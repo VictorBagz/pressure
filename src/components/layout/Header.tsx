@@ -3,12 +3,11 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, LogOut } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { logout } from '@/app/admin/actions';
 
 const navLinks = [
   { href: '/#home', label: 'Home' },
@@ -17,16 +16,6 @@ const navLinks = [
   { href: '/#players', label: 'Players' },
   { href: '/#donate-section', label: 'Donate' },
 ];
-
-function LogoutButton() {
-    return (
-        <form action={logout}>
-            <Button type="submit" variant="ghost" size="icon" aria-label="Logout">
-                <LogOut className="h-5 w-5" />
-            </Button>
-        </form>
-    )
-}
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -89,7 +78,6 @@ export default function Header() {
             </Link>
             <div className="flex items-center gap-4">
               <span className="font-bold text-lg">Admin Dashboard</span>
-              <LogoutButton />
             </div>
           </div>
         </div>
